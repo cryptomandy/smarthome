@@ -1,0 +1,96 @@
+
+
+@media screen and (min-width:321px) and (max-width:375px){html{font-size:12px}}
+@media screen and (min-width:376px) and (max-width:414px){html{font-size:14px}}
+@media screen and (min-width:415px) and (max-width:639px){html{font-size:16px}}
+@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
+@media screen and (min-width:720px) and (max-width:749px){html{font-size:22px}}
+@media screen and (min-width:750px) and (max-width:799px){html{font-size:24px}}
+@media screen and (min-width:800px){html{font-size:28px}}
+
+html,body{
+  border: 0;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    vertical-align: baseline;
+}
+//需要清除原本浏览器的样式文件，但是不能设置html的大小，rem针对的是html根元素
+div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    vertical-align: baseline;
+    font-size: 1rem;
+    color: #333;
+}
+html,body{
+    height:100%
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+button {
+    outline: none;
+}
+ol, ul {
+    margin: 0;
+    padding: 0;
+}
+ol, ul, li {
+    list-style: none;
+}
+i, em {
+    font-style: normal;
+}
+blockquote {
+    quotes: none;
+}
+blockquote:before, blockquote:after {
+    content: '';
+    content: none;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    text-decoration:none;
+    text-decoration: none;
+    transition: background-color .5s ease 0s,color .5s ease 0s,width .5s ease 0s,border-width .5s ease 0s,border-color .5s ease 0s;
+    -webkit-transition: background-color .5s ease 0s,color .5s ease 0s,width .5s ease 0s,border-width .5s ease 0s,border-color .5s ease 0s;
+    -moz-transition: background-color .5s ease 0s,color .5s ease 0s,width .5s ease 0s,border-width .5s ease 0s,border-color .5s ease 0s;
+    -ms-transition: background-color .5s ease 0s,color .5s ease 0s,width .5s ease 0s,border-width .5s ease 0s,border-color .5s ease 0s;
+    -o-transition: background-color .5s ease 0s,color .5s ease 0s,width .5s ease 0s,border-width .5s ease 0s,border-color .5s ease 0s;
+    color: #333;
+}
+input, textarea{
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    outline: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+select, option{
+    font-family: inherit;
+}
+.noselect{
+    -webkit-user-select: none;
+    user-select: none;
+}
+.clear {
+    clear: both;
+}
+
+.clearfix:before,.clearfix:after{
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    *zoom:1;
+}

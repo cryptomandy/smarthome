@@ -1,0 +1,357 @@
+{
+    "bannerList":[
+        {
+            "url":"http://ly.wy.guahao.com/news/8875",
+            "imageUrl":"http://kano.guahao.cn/elarge_hZA21885297"
+        },
+        {
+            "url":"http://ly.wy.guahao.com/news/8752",
+            "imageUrl":"http://kano.guahao.cn/elarge_h2K21366689"
+        },
+        {
+            "url":"http://ly.wy.guahao.com/news/8670",
+            "imageUrl":"http://kano.guahao.cn/elarge_XSu20367810"
+        }
+    ],
+    "newsList":[
+        {
+            "id": 9653,
+            "typeId": null,
+            "title": "冬天头屑满天飞，怎么破？",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_f2131341456",
+            "digest": "想要无“屑”可击，看这里",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "774",
+            "likeCount": null,
+            "channelList": [
+                "6_生活",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9655,
+            "typeId": null,
+            "title": "预防流感，这些方法真的靠谱吗",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_Itb31342813",
+            "digest": "教你降低室内空气病毒的最好办法",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "346",
+            "likeCount": null,
+            "channelList": [
+                "6_生活",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9672,
+            "typeId": null,
+            "title": "吃完火锅上火冒痘？只因料不对",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_Ry731356185",
+            "digest": "吃火锅的4个正确姿势",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "114",
+            "likeCount": null,
+            "channelList": [
+                "5_营养",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9521,
+            "typeId": null,
+            "title": "脱发or掉发？你不知道的真相",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_alh29156298",
+            "digest": "平时这样吃可以预防脱发",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "14746",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9616,
+            "typeId": null,
+            "title": "3月不晒被=600万螨虫陪你睡",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_IkW30679874",
+            "digest": "晒被子拍一拍？你真的错了",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "14621",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9627,
+            "typeId": null,
+            "title": "捏一捏，让宝宝拥有高鼻梁？",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_wbf30734740",
+            "digest": "手动“整容”？不可取",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "9851",
+            "likeCount": null,
+            "channelList": [
+                "3_母婴",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9614,
+            "typeId": null,
+            "title": "菜，越吃越咸，怎么破？",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_pq930683543",
+            "digest": "小心暗含食盐的“隐形杀手”",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "10481",
+            "likeCount": null,
+            "channelList": [
+                "5_营养",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9615,
+            "typeId": null,
+            "title": "关于洗脸的4个真相，你知多少",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_fYj30684548",
+            "digest": "热水or冷水，肤质而定",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "18180",
+            "likeCount": null,
+            "channelList": [
+                "4_女性",
+                "1_推荐"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9570,
+            "typeId": null,
+            "title": "学会这招！羽绒服清洗再也不难",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_EN330067847",
+            "digest": "机洗隐患——可致“爆炸”",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "24733",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        
+        {
+            "id": 9567,
+            "typeId": null,
+            "title": "注意！4类人群慎用电热毯",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_nNy30064591",
+            "digest": "冬季这样使用才安全",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "36267",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        
+        {
+            "id": 9566,
+            "typeId": null,
+            "title": "女性冬季5个部位“冻”不得！",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_GrS30062330",
+            "digest": "这5个部位打死也不能露出",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "46211",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "4_女性"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9568,
+            "typeId": null,
+            "title": "醋怎么吃健康？这5类人不要吃",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_MH430066379",
+            "digest": "醋吃不对可能引起健康问题",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "42907",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "5_营养"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9510,
+            "typeId": null,
+            "title": "7种尿液颜色，告诉你健康危机",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_vlB29105798",
+            "digest": "小便异常，警惕身体疾病",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "66262",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9527,
+            "typeId": null,
+            "title": "冬季脱发，如何用膏方调理？",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_VvG29193452",
+            "digest": "4个药膳，轻松防治脱发",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "31537",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9518,
+            "typeId": null,
+            "title": "这4类人走路，要小心了！",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_8G329125807",
+            "digest": "这样走路，生病风险降低一半",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "35590",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        },
+        {
+            "id": 9509,
+            "typeId": null,
+            "title": "睡前1小时，做好这7件事！",
+            "halfTitle": null,
+            "content": null,
+            "source": null,
+            "h5Img": "http://kano.guahao.cn/elarge_xYC29104604",
+            "digest": "养生关键期，请对号入座",
+            "publishDate": null,
+            "contentBigImg": null,
+            "readCount": "37731",
+            "likeCount": null,
+            "channelList": [
+                "1_推荐",
+                "6_生活"
+            ],
+            "channelName": null,
+            "choice": 0,
+            "top": 0
+        }
+    ]
+}
+
