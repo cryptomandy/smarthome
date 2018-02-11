@@ -11,7 +11,7 @@ const select = r => require.ensure([], () => r(require('@/components/index/selec
 // import index from '@/components/index' 
 
 Vue.use(Router)
-
+//路由地址
 export default new Router({
     routes: [
         {
