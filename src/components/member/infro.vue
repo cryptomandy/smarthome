@@ -1,7 +1,12 @@
+<style scoped lang="less">
+@import "../../style/mixin";
+
+
+</style>
 <template>
-    <div class="news">
-        <h5 class="new_title">个人信息</h5>
-        <div class="new_bg">
+    <div class="root_box">
+        <h5 class="big_title">个人信息</h5>
+        <div class="wrap_bg">
             <ul>
                 <li>
                     <label>用户名：</label><input type="text" placeholder="请输入用户名">
@@ -50,18 +55,4 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-@import "../../style/mixin";
-.news{
-    font-size: 24/@rem;
-    .new_title{
-        text-align: left;
-        padding: 30/@rem 0 10/@rem 30/@rem;
-        font-size: 36/@rem;
-    }
-}
-.new_bg{
 
-}
-
-</style>
