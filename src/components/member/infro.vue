@@ -27,7 +27,7 @@ export default {
     name: 'infro',
     data () {
         return {
-            
+
         }
     },
     created(){
@@ -39,33 +39,29 @@ export default {
     methods:{
         //axios可用于客户端和服务器
         getList(){
-            let self = this;
-            
+
         },
         //post需要三个参数： url，{}，config
 
         jumpBook(){
-            
+
         },
     }
 }
 </script>
 
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-/*不能直接引进less变量*/ 
-// @import from '@/assets/common/base'
+@import "../../style/mixin";
 .news{
-    font-size: 24/24rem;
+    font-size: 24/@rem;
     .new_title{
         text-align: left;
-        padding: 30/24rem 0 10/24rem 30/24rem;
-        font-size: 36/24rem;
+        padding: 30/@rem 0 10/@rem 30/@rem;
+        font-size: 36/@rem;
     }
 }
 .new_bg{
-    
+
 }
- 
+
 </style>

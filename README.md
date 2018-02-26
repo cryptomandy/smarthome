@@ -1,8 +1,4 @@
-# smarthome
-
-> A Vue.js project
-
-## Build Setup
+# smarthome  vue + vue-router + vuex + es6 + webpack + axios
 
 ``` bash
 # install dependencies
@@ -17,19 +13,18 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 
-# run unit tests
 npm run unit
-
-# run e2e tests
-npm run e2e
 
 # run all tests
 npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-```
-# 单页面模式和多页面模式
+## 单页面模式和多页面模式
 https://www.cnblogs.com/veinyin/p/7911292.html
+
+
+
+## git的配置说明
+https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE
+
 

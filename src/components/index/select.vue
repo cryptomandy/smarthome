@@ -1,3 +1,79 @@
+<style scoped lang="less">
+    /*不能直接引进less变量*/
+    // @import from '@/assets/common/base'
+    @import "../../style/mixin";
+    .news{
+        font-size: 20/@rem;
+        .edit_title{
+            text-align: left;
+            padding: 30/@rem 0 10/@rem 30/@rem;
+            font-size: 36/@rem;
+        }
+    }
+    .edit_bg{
+        .edit_item{
+            width: 100%;
+            h6{
+                padding: 0 30/@rem;
+                height: 80/@rem;
+                line-height: 80/@rem;
+                font-size: 32/@rem;
+                .fj();
+                .btu_edit{
+                    width: 120/@rem;
+                    text-align: right;
+                }
+            }
+            .edits{
+                padding: 0 30/@rem;
+
+            }
+            ul{
+                width: 100%;
+                display: flex;
+                flex-flow: row wrap;
+                li{
+                    box-sizing: border-box;
+                    position: relative;
+                    // margin: 10/@rem 1.5%;
+                    flex: 0 0 25%;
+                    text-align: center;
+                    background: #f5f5f5;
+                    .e_icon{
+                        margin: 20/@rem auto 0;
+                        width: 80%;
+                        display: block;
+                        height: 80/@rem;
+                    }
+                    p{
+                        padding: 20/@rem 0;
+                    }
+                    .e_status{
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        z-index: 1;
+                        span{
+                            display: block;
+                            border-radius: 50%;
+                            width: 1.2rem;
+                            height: 1.2rem;
+                            line-height: 1.2rem;
+                            color: #fff;
+                        }
+                        .e_minus{
+                            background: #ff4444;
+                        }
+                        .e_plus{
+                            background: #1336ee;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+</style>
 <template>
     <div class="news">
         <h5 class="edit_title">子项添加的div存在—编辑</h5>
@@ -27,7 +103,7 @@
 
 <script>
 export default {
-    name: 'edit',
+    name: 'select-index',
     data () {
         return {
             editList :[
@@ -39,7 +115,7 @@ export default {
                             "text": "火车票", //必须有
                             "background":"#e17f50", //暂时标记页面颜色
                             "SubSortId":"2",//必须有
-                        }, 
+                        },
                         {
                             "text": "机票",
                             "background":"#db72c9",
@@ -49,7 +125,7 @@ export default {
                             "text": "日本",
                             "background":"#a673ea",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "德国",
                             "background":"#7a73ea",
@@ -65,44 +141,44 @@ export default {
                             "text": "火车票",
                             "background":"#e17f50",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "机票",
                             "background":"#db72c9",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "日本",
                             "background":"#a673ea",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "德国",
                             "background":"#7a73ea",
                             "SubSortId":"2"
                         },
-                        
+
                         {
                             "text": "境内意外险",
                             "background":"#e17f50",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "境外意外险",
                             "background":"#db72c9",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "全年意外险",
                             "background":"#a673ea",
                             "SubSortId":"2"
-                        }, 
+                        },
                         {
                             "text": "高铁贵宾厅",
                             "background":"#7a73ea",
                             "SubSortId":"2"
                         }
-                        
+
                     ]
                 },
                 {
@@ -113,12 +189,12 @@ export default {
                             "text": "健身",
                             "background":"#e17f50",
                             "SubSortId":"3"
-                        }, 
+                        },
                         {
                             "text": "在线教育",
                             "background":"#db72c9",
                             "SubSortId":"3"
-                        }, 
+                        },
                         {
                             "text": "拍照",
                             "background":"#a673ea",
@@ -134,12 +210,12 @@ export default {
                             "text": "问诊",
                             "background":"#e17f50",
                             "SubSortId":"4"
-                        }, 
+                        },
                         {
                             "text": "挂号",
                             "background":"#db72c9",
                             "SubSortId":"4"
-                        }, 
+                        },
                         {
                             "text": "电话医生",
                             "background":"#a673ea",
@@ -152,7 +228,7 @@ export default {
         }
     },
     created(){
-        
+
     },
     mounted(){
         this.getList();
@@ -171,7 +247,7 @@ export default {
         setStatus(){
             this.$data.editList.forEach( list => {
                 list.SortList.forEach( item => {
-                    if(list.SortId=="1"){//在我的应用中   
+                    if(list.SortId=="1"){//在我的应用中
                         item.EditStatus = "minus";
                     }else{
                         let curStatus = "plus";
@@ -188,7 +264,7 @@ export default {
         //编辑
         setEdit(){
             this.$data.allStatus = 1;
-            this.setStatus(); 
+            this.setStatus();
         },
         //完成
         setFinish(){
@@ -234,80 +310,4 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-/*不能直接引进less变量*/ 
-// @import from '@/assets/common/base'
-.news{
-    font-size: 20/24rem;
-    .edit_title{
-        text-align: left;
-        padding: 30/24rem 0 10/24rem 30/24rem;
-        font-size: 36/24rem;
-    }
-}
-.edit_bg{
-    .edit_item{
-        width: 100%;
-        h6{
-            padding: 0 30/24rem;
-            height: 80/24rem;
-            line-height: 80/24rem;
-            font-size: 32/24rem;
-            display: flex;
-            justify-content: space-between;
-            .btu_edit{
-                width: 120/24rem;
-                text-align: right;
-            }
-        }
-        .edits{
-            padding: 0 30/24rem;
-            
-        }
-        ul{
-            width: 100%;
-            display: flex;
-            flex-flow: row wrap;
-            li{
-                box-sizing: border-box;
-                position: relative;
-                // margin: 10/24rem 1.5%;
-                flex: 0 0 25%;
-                text-align: center;
-                background: #f5f5f5;
-                .e_icon{
-                    margin: 20/24rem auto 0;
-                    width: 80%;
-                    display: block;
-                    height: 80/24rem;
-                }
-                p{
-                    padding: 20/24rem 0;
-                }
-                .e_status{
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    z-index: 1;
-                    color: #fff;
-                    span{
-                        display: block;
-                        border-radius: 50%;
-                        width: 1.2rem;
-                        height: 1.2rem;
-                        line-height: 1.2rem;
-                    }
-                    .e_minus{
-                        background: #ff4444;
-                    }
-                    .e_plus{
-                        background: #1336ee;
-                    }
-                }
 
-            }
-        }
-    }
-}
- 
-</style>
