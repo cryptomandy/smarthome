@@ -11,6 +11,7 @@
         .item_bg{
             display: flex;
             padding: 20/@rem 1rem;
+            min-height: 150/@rem;
         }
         .m_image img{
             width: 100%;

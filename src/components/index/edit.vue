@@ -81,7 +81,7 @@
                 <div class="edits">
                     <ul>
                         <li v-for="(item,index) in list.SortList">
-                            <!-- 我的应用加拖曳事件添加 -->
+                            <!-- 我的应用加拖曳事件 -->
                             <div v-if='list.SortId=="1"' class="e_items"   @dragover="preventOver($event)" @drop.prevent="drop($event)" id="dropBox">
                                 <div class="e_bg" @dragstart="drag($event)" v-bind:data-id="index" draggable="true" @click="minusOrPlus(list,ind,item,index)" id="dragBox">
                                     <div class="e_status">

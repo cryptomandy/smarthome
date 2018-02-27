@@ -52,7 +52,7 @@ export default {
                 {
                     "navUrl":"/lifelist",
                     "funName":"资讯列表",
-                    "funDes":"a. 图片加载，axios合并请求；b. 数组重组",
+                    "funDes":"a. 图片加载；b. axios合并请求；c. 数组重组",
                     "creatDate":"2018-01-18",
                     "updateDate":"2018-01-26"
                 },
@@ -63,7 +63,13 @@ export default {
                     "creatDate":"2018-01-23",
                     "updateDate":"2018-01-26"
                 },
-
+                {
+                    "navUrl":"/infro",
+                    "funName":"信息验证",
+                    "funDes":"a. 正则使用",
+                    "creatDate":"2018-01-26",
+                    "updateDate":"2018-01-26"
+                },
             ]
         }
     },

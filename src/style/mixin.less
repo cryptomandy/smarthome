@@ -1,7 +1,4 @@
-@import "./color";
-@rem: 24rem;  //字体相对大小
-//边框
-@paddB: 30/@rem; //距离左右的距离30px；paddBorder
+@import "./class";
 
 //flex布局 和 子元素对其方式，默认两边对齐
 .fj(@type: space-between){
@@ -21,9 +18,12 @@
 //大标题
 .big_title{
     text-align: left;
-    padding: 30/@rem 0 10/@rem 30/@rem;
+    padding: 30/@rem 0 30/@rem 30/@rem;
     .sc(36/@rem,@btc);
+    background: #fff;
+    margin-bottom: 20/@rem;
 }
+
 //1px
 .setBase(){
     content: '';
@@ -73,5 +73,3 @@
     transform-origin: 100% 0;
     transform: scaleX(0.5);
 }
-
-

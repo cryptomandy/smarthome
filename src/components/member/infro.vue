@@ -1,12 +1,35 @@
 <style scoped lang="less">
 @import "../../style/mixin";
+.wrap_ff{
+    ul{
 
-
+        li{
+            padding: 0  @paddB;
+            position: relative;
+            display: block;
+            height: 88/@rem;
+            line-height: 88/@rem;
+            font-size: 28/@rem;
+            background: #fff;
+            label{
+                color: @dgc;
+                width: 146/@rem;
+                display: inline-block;
+            }
+            &:after{
+                .setBottomLine();
+            }
+            input{
+                height: 100%;
+            }
+        }
+    }
+}
 </style>
 <template>
     <div class="root_box">
         <h5 class="big_title">个人信息</h5>
-        <div class="wrap_bg">
+        <div class="wrap_ff">
             <ul>
                 <li>
                     <label>用户名：</label><input type="text" placeholder="请输入用户名">
@@ -14,7 +37,7 @@
                 <li>
                     <label>邮箱：</label><input type="text" placeholder="请输入邮箱">
                 </li>
-                <li>
+                <li class="g_line">
                     <label>手机号码：</label><input type="text" placeholder="请输入手机号码">
                 </li>
                 <li>
@@ -32,25 +55,22 @@ export default {
     name: 'infro',
     data () {
         return {
-
+            config:{
+                "userName":"",
+                "email":"",
+                "phone":"",
+                "code":""
+            },
         }
     },
     created(){
-        this.getList();
+
     },
     mounted(){
 
     },
     methods:{
-        //axios可用于客户端和服务器
-        getList(){
 
-        },
-        //post需要三个参数： url，{}，config
-
-        jumpBook(){
-
-        },
     }
 }
 </script>

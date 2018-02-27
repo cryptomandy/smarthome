@@ -3,8 +3,6 @@ const path = require('path')
 const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
-// const getLess = require("../src/config/commonless")
-// const themePath = require("../src/assets/common/theme")
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = process.env.NODE_ENV === 'production'

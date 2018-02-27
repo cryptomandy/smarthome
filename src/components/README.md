@@ -23,8 +23,6 @@ https://www.cnblogs.com/dannyxie/p/5642727.html
 　　•event.stopPropagation();
 　　•停止回调函数执行并立即返回。
 
-* 节点target属性
-
 
 
 
