@@ -8,7 +8,7 @@ https://vuex.vuejs.org/zh-cn/actions.html
 * actions: 可以异步执行
 
 ### actions
-* Actions 支持同样的载荷方式和对象方式进行分发：
+* Actions 支持同样的载荷方式和对象方式进行分发
 `
     // 以载荷形式分发
     store.dispatch('incrementAsync', {
@@ -21,8 +21,11 @@ https://vuex.vuejs.org/zh-cn/actions.html
         amount: 10
     })
 `
-### module模块
 
+### mutations
+* https://vuex.vuejs.org/zh-cn/mutations.html
+
+### module模块
 
 
 ### 功能场景

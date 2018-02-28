@@ -4,20 +4,25 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import axios from 'axios'
-import vuex from "vuex"
+import store from './store/store'
 import FastClick from 'fastclick'
 
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-Vue.use(vuex)
+
 
 // 消除 click 移动浏览器300ms延迟
 FastClick.attach(document.body)
 
+/**
+ * @params store 可以在组件中使用 this.$store.commit('xxx') 提交 mutation，或者使用 mapMutations 辅助函数将组件中的 methods 映射为 store.commit 调用（需要在根节点注入 store）
+ *
+ * */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

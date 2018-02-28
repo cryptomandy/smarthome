@@ -50,9 +50,9 @@
                 span{
                     display: block;
                     border-radius: 50%;
-                    width: 1.2rem;
-                    height: 1.2rem;
-                    line-height: 1.2rem;
+                    width: 30/@rem;
+                    height: 30/@rem;
+                    line-height: 30/@rem;
                     color: #fff;
                 }
                 .e_minus{
@@ -112,10 +112,9 @@
         </div>
     </div>
 </template>
-
 <script>
-    //？？？ 为什么在总的main方法中写了这边还要写
     import axios from 'axios'
+    import {mapState, mapMutations} from 'vuex'
     export default {
         name: 'edit',
         data () {
@@ -262,24 +261,17 @@
             }
         },
         created(){
-            this.getList();
         },
         mounted(){
 
         },
         methods:{
-            getList(){
-                if(this.$data.editList.length==0) return false;
-                this.$data.editList.forEach((list,i) => {
-                    if(list.SortList==0) return false;
-                    list.SortList.forEach((item,index) => {
-                        item.SubSortId =  list.SortId;
-                    })
-                });
-            },
+            ...mapMutations([
+                'USER_EDITLIST'
+            ]),
             //点击编辑设置状态
             setStatus(){
-                this.$data.editList.forEach((list,i) => {
+                this.editList.forEach((list,i) => {
                     list.SortList.forEach((item,index) => {
                         if(list.SortId=="1"){//我的应用
                             if(list.EditStatus == "undefined"){
@@ -299,50 +291,56 @@
             },
             //编辑
             setEdit(){
-                this.$data.allStatus = 1;
+                this.allStatus = 1;
                 this.setStatus();
             },
-            //完成
+            //完成 或 async setFinish
             setFinish(){
-                this.$data.allStatus = 0;
-                window.location.href = "/index";
+                this.allStatus = 0;
+                let status = {
+                    userEditList: this.editList[0].SortList || []
+                }
+                //2018-02-28测试state管理
+                this.USER_EDITLIST(status);
+                //脚本路由跳转方式
+                this.$router.go(-1); // this.$router.push({path:'/index'})
             },
             //加减应用
             minusOrPlus(list,ind,item,index){
                 //点击从我的应用减去
-                if(this.$data.allStatus==1){
-                    let curElem = this.$data.editList[ind];
+                if(this.allStatus==1){
+                    let curElem = this.editList[ind];
+
                     if(list.SortId == "1"){ //已在“我的应用”中
-                    curElem.SortList.splice(index,1);
-                    item.EditStatus = "minus";
-                    this.$data.editList.forEach( el => {
-                        if(el.SortId == "1") return false;
-                        for(let kk = 0; kk < el.SortList.length; kk++){
-                            let element = el.SortList[kk];
-                            if(element.text == item.text){
-                                element.EditStatus = "plus";
-                                break;
-                            }
-                        }
-                    })
-                }else{
-                    //加状态
-                    if(item.EditStatus == "plus"){
+                        curElem.SortList.splice(index,1);
                         item.EditStatus = "minus";
-                        this.$data.editList[0].SortList.push(item);
-                    }else{
-                        item.EditStatus = "plus";
-                        //从我的应用中减去
-                        this.$data.editList[0].SortList.forEach( (el, ii) => {
-                            if(el.text == item.text){
-                                this.$data.editList[0].SortList.splice(ii,1);
+                        this.editList.forEach( el => {
+                            if(el.SortId == "1") return false;
+                            for(let kk = 0; kk < el.SortList.length; kk++){
+                                let element = el.SortList[kk];
+                                if(element.text == item.text){
+                                    element.EditStatus = "plus";
+                                    break;
+                                }
                             }
                         })
+                    }else{
+                        //加状态
+                        if(item.EditStatus == "plus"){
+                            item.EditStatus = "minus";
+                            this.editList[0].SortList.push(item);
+                        }else{
+                            item.EditStatus = "plus";
+                            //从我的应用中减去
+                            this.editList[0].SortList.forEach( (el, ii) => {
+                                if(el.text == item.text){
+                                    this.editList[0].SortList.splice(ii,1);
+                                }
+                            })
+                        }
                     }
                 }
-                }
             },
-
             //拖曳事件
             drag(event){
                 if(event.path && event.path[0] && event.path[0].dataset.id){

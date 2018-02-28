@@ -42,8 +42,9 @@
 </template>
 
 <script>
-
 import axios from 'axios'
+import {mapState} from 'vuex'
+
 export default {
     name: 'index',
     data () {
@@ -73,11 +74,16 @@ export default {
             ]
         }
     },
+    computed:{
+        ...mapState([
+            'userEditList'
+        ])
+    },
     created(){
 
     },
     mounted(){
-
+        console.log(this.userEditList);
     },
     methods:{
 

@@ -114,14 +114,13 @@ export default {
                 //如果此处用let，则需要改变名称，因为res已经声明过了
                 res = res.data;
                 if(res.data && res.data.length){
-                    this.$data.newsList = res.data;
-
-                    for(let i=0; i< this.$data.sortArr.length; i++){
-                        let __index = this.$data.sortArr[i];
-                        this.$data.newsList.splice(__index,0,this.$data.bannerList[i]);
+                    this.newsList = res.data;
+                    for(let i = 0; i< this.sortArr.length; i++){
+                        let __index = this.sortArr[i];
+                        this.newsList.splice(__index,0,this.bannerList[i]);
                     }
                 }else{
-                    this.$data.isHasData = true;
+                    this.isHasData = true;
                     return false;
                 }
             },(res) => { // ***总结 1. 当参数有一个时，可以省略“()”括号；2. 当多参数时，不可省略；3、当为空时，空中括号，右侧大括号为return语句时，可以省略大括号和return语句
@@ -148,13 +147,13 @@ export default {
                 }
 
                 //concat 不能改变原来的数组，需要重新赋值
-                let newData = this.$data.newsList.concat(oneRes.data.data,twoRes.data.data);
-                this.$data.newsList = newData;
+                // let newData = this.newsList.concat(oneRes.data.data,twoRes.data.data);
+                // this.newsList = newData;
                 //或者
-                // this.$data.newsList.push.apply(this.newsList, oneRes.data.data);
-                // this.$data.newsList.push.apply(this.newsList, twoRes.data.data);
+                // this.newsList.push.apply(this.newsList, oneRes.data.data);
+                // this.newsList.push.apply(this.newsList, twoRes.data.data);
                 //*** 总结： 1.用cancat，可以一次性合并多个，需要重新赋值 2. 使用push.apply则一次合并一个数组
-                console.log(this.newsList.length);
+                console.log(this.newsList.length,"当前数组长度");
             })).catch(error => {
                 console.log(error);
             })
