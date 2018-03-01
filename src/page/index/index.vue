@@ -11,6 +11,7 @@
             h6{
                 font-size: 32/@rem;
                 color: @mainLC;
+                position: relative;
             }
             p{
                 color: @dgc;
@@ -30,7 +31,7 @@
             <ul>
                 <li v-for="(item,index) in funList">
                     <router-link :to="item.navUrl">
-                        <h6>{{item.funName}}</h6>
+                        <h6 class="iconfont icon-category">{{item.funName}}</h6>
                         <p><em>功能说明：</em>{{item.funDes}}</p>
                         <p><em>创建时间：</em>{{item.creatDate}}</p>
                         <p><em>修改时间：</em>{{item.updateDate}}</p>
@@ -53,7 +54,7 @@ export default {
                 {
                     "navUrl":"/lifelist",
                     "funName":"资讯列表",
-                    "funDes":"a. 图片加载；b. axios合并请求；c. 数组重组",
+                    "funDes":"a. 图片加载；b. axios合并请求；c. 数组重组；d. 使用字体图标（下载字体图标到本地，解压之后，在css中改为本地路径，或者在线生成路径）",
                     "creatDate":"2018-01-18",
                     "updateDate":"2018-01-26"
                 },
@@ -62,14 +63,14 @@ export default {
                     "funName":"多个div拖动编辑",
                     "funDes":"a. div添加和去除，拖曳；b. Vuex使用",
                     "creatDate":"2018-01-23",
-                    "updateDate":"2018-01-26"
+                    "updateDate":"2018-02-28"
                 },
                 {
                     "navUrl":"/infro",
                     "funName":"信息验证",
-                    "funDes":"a. 正则使用",
+                    "funDes":"a. 正则验证；b. 组件使用",
                     "creatDate":"2018-01-26",
-                    "updateDate":"2018-01-26"
+                    "updateDate":"2018-02-26"
                 },
             ]
         }

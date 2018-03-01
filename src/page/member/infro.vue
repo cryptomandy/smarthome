@@ -6,7 +6,7 @@
         li{
             padding: 0  @paddB;
             position: relative;
-            display: block;
+            display: flex;
             height: 88/@rem;
             line-height: 88/@rem;
             font-size: 28/@rem;
@@ -32,16 +32,25 @@
         <div class="wrap_ff">
             <ul>
                 <li>
-                    <label>用户名：</label><input type="text" placeholder="请输入用户名">
+                    <label>用户名：</label>
+                    <input type="text" maxlength="11"
+                        placeholder="请输入用户名" v-model="config.userName">
                 </li>
                 <li>
-                    <label>邮箱：</label><input type="text" placeholder="请输入邮箱">
+                    <label>邮箱：</label>
+                    <input type="text"
+                        placeholder="请输入邮箱" v-model="config.email">
                 </li>
                 <li class="g_line">
-                    <label>手机号码：</label><input type="text" placeholder="请输入手机号码">
+                    <label>手机号码：</label>
+                    <input type="text"
+                        placeholder="请输入手机号码" v-model="config.phone">
+
                 </li>
                 <li>
-                    <label>验证码：</label><input type="text" placeholder="请输入验证码">
+                    <label>验证码：</label>
+                    <input type="text" maxlength="6"
+                        placeholder="请输入验证码" v-model="config.code">
                 </li>
             </ul>
         </div>
@@ -49,17 +58,16 @@
 </template>
 
 <script>
-//？？？ 为什么在总的main方法中写了这边还要写
 import axios from 'axios'
 export default {
     name: 'infro',
     data () {
         return {
             config:{
-                "userName":"",
-                "email":"",
-                "phone":"",
-                "code":""
+                userName:"",
+                email:"",
+                phone:"",
+                code:""
             },
         }
     },

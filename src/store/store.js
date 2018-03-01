@@ -21,7 +21,7 @@ export default new Vuex.Store({
     getters,
     mutations,
     actions,
-    modules:{
+    modules:{  //单独模块
 
     }
 })

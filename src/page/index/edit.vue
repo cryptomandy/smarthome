@@ -114,7 +114,7 @@
 </template>
 <script>
     import axios from 'axios'
-    import {mapState, mapMutations} from 'vuex'
+    import {mapMutations} from 'vuex'
     export default {
         name: 'edit',
         data () {
@@ -266,6 +266,7 @@
 
         },
         methods:{
+            //Mutation 必须是同步函数
             ...mapMutations([
                 'USER_EDITLIST'
             ]),

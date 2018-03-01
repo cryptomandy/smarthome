@@ -5,12 +5,16 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from './store/store'
+import lazyLoad from 'vue-lazyload'
 import FastClick from 'fastclick'
 
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
-
+Vue.use(lazyLoad,{
+    error: '',
+    loading:'../static/img/loading'
+})
 
 // 消除 click 移动浏览器300ms延迟
 FastClick.attach(document.body)

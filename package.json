@@ -14,10 +14,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "awe-dnd": "^0.3.1",
     "less-loader": "^4.0.5",
     "vue": "^2.5.2",
-    "vue-kanban": "^1.2.0",
     "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.3",
     "vuex": "^3.0.1"
@@ -81,6 +79,7 @@
     "vue-hot-reload-api": "^2.2.4",
     "vue-html-loader": "^1.2.4",
     "vue-jest": "^1.0.2",
+    "vue-lazyload": "^1.2.1",
     "vue-loader": "^13.7.0",
     "vue-resource": "^1.3.5",
     "vue-style-loader": "^3.0.3",

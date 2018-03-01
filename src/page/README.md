@@ -12,7 +12,7 @@ https://github.com/hilongjw/vue-dragging/blob/master/vue-dragging.js
 http://www.wheelsfactory.cn/#/detail?id=105
 
 
-##知识梳理
+## 知识梳理
 
 preventDefault , stopPropagation 和return false的区别
 https://www.cnblogs.com/dannyxie/p/5642727.html
@@ -25,7 +25,8 @@ https://www.cnblogs.com/dannyxie/p/5642727.html
 
 
 
-
+### 数组
+- 数组合并 http://blog.csdn.net/renfufei/article/details/39376311
 
 
 

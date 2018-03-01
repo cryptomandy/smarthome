@@ -15,5 +15,6 @@ export default {
 
 //正确引入样式文件，注意格式
 @import "./style/base";
+@import './style/fonts/iconfont';
 
 </style>

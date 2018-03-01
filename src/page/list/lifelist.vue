@@ -51,13 +51,13 @@
     <div class="root_box">
         <h5 class="big_title">生活营养师</h5>
         <div class="wrap_bg">
-            <a href="javascript:;" v-for='(item,index) in newsList' @click="jumpBook" v-if="item && item!=null">
+            <a href="javascript:;" v-for='(item,index) in newsList' v-if="item && item!=null">
                 <div class="item_bg m_image" v-if='item.Imageurl && item.Imageurl!=""'>
                     <img v-bind:src="item.Imageurl" alt="">
                 </div>
                 <div class="item_bg" v-else>
                     <div class="item_left">
-                        <img v-bind:src="item.h5Img" alt="">
+                        <img v-lazy="item.h5Img" alt="">
                     </div>
                     <div class="item_right">
                         <h6>{{item.title}}</h6>
@@ -147,12 +147,13 @@ export default {
                 }
 
                 //concat 不能改变原来的数组，需要重新赋值
-                // let newData = this.newsList.concat(oneRes.data.data,twoRes.data.data);
-                // this.newsList = newData;
+                let newData = this.newsList.concat(oneRes.data.data,twoRes.data.data);
+                this.newsList = newData;
                 //或者
                 // this.newsList.push.apply(this.newsList, oneRes.data.data);
                 // this.newsList.push.apply(this.newsList, twoRes.data.data);
                 //*** 总结： 1.用cancat，可以一次性合并多个，需要重新赋值 2. 使用push.apply则一次合并一个数组
+                // 数组合并 http://blog.csdn.net/renfufei/article/details/39376311
                 console.log(this.newsList.length,"当前数组长度");
             })).catch(error => {
                 console.log(error);
@@ -160,10 +161,6 @@ export default {
 
         },
         //post需要三个参数： url，{}，config
-
-        jumpBook(){
-
-        },
     }
 }
 </script>
