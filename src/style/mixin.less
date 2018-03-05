@@ -10,7 +10,7 @@
     width: @width;
     height: @hight;
 }
-//font and size
+//size and  font
 .sc(@size, @color){
     font-size: @size;
     color: @color;
@@ -19,9 +19,23 @@
 .big_title{
     text-align: left;
     padding: 30/@rem 0 30/@rem 30/@rem;
-    .sc(36/@rem,@btc);
+    .sc(36/@rem,@big-title);
     background: #fff;
     margin-bottom: 20/@rem;
+}
+
+//字符截取：多行
+.moreText(@num:2){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @num;
+    overflow: hidden;
+}
+
+//小图标圆角设定；
+.radius(@radius: 30){
+    border-radius: @radius/@rem;
+    -webkit-border-radius: @radius/@rem;
 }
 
 //1px

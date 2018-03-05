@@ -4,7 +4,7 @@
     ul{
 
         li{
-            padding: 0  @paddB;
+            padding: 0  @padd-30;
             position: relative;
             display: flex;
             height: 88/@rem;
@@ -12,7 +12,7 @@
             font-size: 28/@rem;
             background: #fff;
             label{
-                color: @dgc;
+                color: @text-primary;
                 width: 146/@rem;
                 display: inline-block;
             }

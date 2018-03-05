@@ -1,23 +1,30 @@
 <style scoped lang="less">
+// TODO：加载样式时require和import的区别
     @import "../../style/mixin";
+    .root_box{
+        padding-bottom: 130/@rem;
+    }
     .wrap_bg{
         a{
             display: block;
             position: relative;
-            padding: 20/@rem @paddB;
+            padding: 20/@rem @padd-30;
             &:after{
                 .setBottomLine();
             }
+            .iconfont:before{
+                margin-right: 15/@rem;
+            }
             h6{
                 font-size: 32/@rem;
-                color: @mainLC;
+                color: @light-blue;
                 position: relative;
             }
             p{
-                color: @dgc;
+                color: @text-primary;
                 font-size: 26/@rem;
                 em{
-                    color:@lgc;
+                    color:@text-minor;
                 }
             }
         }
@@ -25,7 +32,7 @@
 </style>
 
 <template>
-    <div class="root_box">
+    <section class="root_box">
         <h5 class="big_title">功能列表</h5>
         <div class="wrap_bg">
             <ul>
@@ -39,13 +46,16 @@
                 </li>
             </ul>
         </div>
-    </div>
+        <!-- 父级传递数据中划线，组件中驼峰写法，动态传递数据时，也可传递一个对象 -->
+        <nav-bar bar-title="index"></nav-bar>
+    </section>
 </template>
 
 <script>
 import axios from 'axios'
 import {mapState} from 'vuex'
 
+import navBar from "@/components/footer/footer";
 export default {
     name: 'index',
     data () {
@@ -54,9 +64,9 @@ export default {
                 {
                     "navUrl":"/lifelist",
                     "funName":"资讯列表",
-                    "funDes":"a. 图片加载；b. axios合并请求；c. 数组重组；d. 使用字体图标（下载字体图标到本地，解压之后，在css中改为本地路径，或者在线生成路径）",
+                    "funDes":"a. 图片加载；b. axios合并请求；c. 数组重组；d. 使用字体图标（下载字体图标到本地，解压之后，在css中改为本地路径，或者在线生成路径）；d. 添加底部导航组件",
                     "creatDate":"2018-01-18",
-                    "updateDate":"2018-01-26"
+                    "updateDate":"2018-03-25"
                 },
                 {
                     "navUrl":"/edit",
@@ -74,6 +84,9 @@ export default {
                 },
             ]
         }
+    },
+    components:{
+        navBar
     },
     computed:{
         ...mapState([

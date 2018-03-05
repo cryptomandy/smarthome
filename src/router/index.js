@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-//ensure 延迟加载？？？
+//TODO: ensure 延迟加载
 //http://www.css88.com/doc/webpack2/guides/code-splitting-require/  require.ensure
 const index = r => require.ensure([], () => r(require('@/page/index/index')),"index")
 const infro = r => require.ensure([], () => r(require('@/page/member/infro')),"infro")
@@ -13,6 +13,11 @@ Vue.use(Router)
 //路由地址
 export default new Router({
     routes: [
+        {
+            path: '/index',
+            name: 'index',
+            component: index
+        },
         {
             path: '/',
             name: 'index',

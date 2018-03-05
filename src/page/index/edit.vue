@@ -15,7 +15,7 @@
         .btu_edit{
             width: 120/@rem;
             text-align: right;
-            color: @lgc;
+            color: @text-minor;
         }
     }
     .edits{
@@ -40,7 +40,7 @@
             }
             p{
                 padding: 20/@rem 0;
-                color: @dgc;
+                color: @text-primary;
             }
             .e_status{
                 position: absolute;
@@ -103,18 +103,21 @@
                                     <p>{{item.text}}</p>
                                 </div>
                             </div>
-
                         </li>
                     </ul>
                 </div>
             </div>
-
         </div>
+        <!-- 弹框提示 -->
+        <!-- 传递对象或者数组 -->
+        <alert-tip :dialog="dialog" v-show="dialog.isdialogShow" @confirm="dialogConfirm" @close='closeCancel'></alert-tip>
     </div>
 </template>
 <script>
     import axios from 'axios'
     import {mapMutations} from 'vuex'
+    import alertTip from '@/components/dialog/alertTip'
+
     export default {
         name: 'edit',
         data () {
@@ -255,10 +258,19 @@
                 allStatus: 0, //编辑0 ，完成1
 
                 // 当前移动的信息
-                current : {
-                    curStartID : -1,
-                }
+                curStartID : -1,
+
+                //测试弹框提示
+                dialog:{
+                    hasCancel: false,
+                    isdialogShow: false,
+                    contentText:"",
+                },
+
             }
+        },
+        components:{
+            alertTip
         },
         created(){
         },
@@ -328,8 +340,14 @@
                     }else{
                         //加状态
                         if(item.EditStatus == "plus"){
-                            item.EditStatus = "minus";
-                            this.editList[0].SortList.push(item);
+                            if(this.editList[0].SortList.length > 6){
+                                this.dialog.isdialogShow = true;
+                                this.dialog.hasCancel = true;
+                                this.dialog.contentText = "添加到首页的应用不能超过7个";
+                            }else{
+                                item.EditStatus = "minus";
+                                this.editList[0].SortList.push(item);
+                            }
                         }else{
                             item.EditStatus = "plus";
                             //从我的应用中减去
@@ -345,9 +363,9 @@
             //拖曳事件
             drag(event){
                 if(event.path && event.path[0] && event.path[0].dataset.id){
-                    this.current.curStartID = parseInt(event.path[0].dataset.id);  //当前移动的项
+                    this.curStartID = parseInt(event.path[0].dataset.id);  //当前移动的项
                 }
-                console.log(this.current.curStartID,"移动时项目id");
+                console.log(this.curStartID,"移动时项目id");
             },
             preventOver(event){
                 event.preventDefault();
@@ -360,15 +378,31 @@
                 console.log(curEndID,"移后的位置id");
                 //将当前拖动的项判断是否拖动离开运来位置
                 //curEndID!=-1 已经移动
-                if(curEndID != -1 && this.current.curStartID != -1 && curEndID != this.current.curStartID){
+                if(curEndID != -1 && this.curStartID != -1 && curEndID != this.curStartID){
                     console.log("已经移动");
                     //改变渲染数据，重新渲染
                     let useList = this.editList[0].SortList;
-                    let dragItem = useList[this.current.curStartID]; //移动的项
-                    useList.splice(this.current.curStartID,1);
+                    let dragItem = useList[this.curStartID]; //移动的项
+                    useList.splice(this.curStartID,1);
                     useList.splice(curEndID,0, dragItem);
                 }
             },
+
+            //弹框事件
+            dialogConfirm(){
+                this.dialog.isdialogShow = false;
+                this.dialog.hasCancel = false;
+                this.dialog.contentText = "";
+            },
+            closeCancel(type){
+                this.dialog.isdialogShow = false;
+                this.dialog.hasCancel = false;
+                this.dialog.contentText = "";
+                if(type && type == "close"){
+                    console.log("关闭背景");
+                }
+
+            }
         }
     }
 </script>

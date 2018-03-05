@@ -1,12 +1,13 @@
 // 公共样式和media
+@base-background: #f8f8f8; //默认页面背景颜色
+@base-font: 1rem; //默认html根元素rem数值
+@base-color: #333;//默认字体颜色
 
-//总的背景样式
-@allBg: #f8f8f8;
 .baseStyle(){
     border: 0;
     margin: 0;
     padding: 0;
-    color: #333;
+    color: @base-color;
 }
 // media查询
 @media screen and (max-width:320px){html{font-size:12px}}
@@ -20,7 +21,10 @@
 @media screen and (min-width:1025px){html{font-size:24px}}
 
 html,body{
-    .baseStyle();
+    border: 0;
+    margin: 0;
+    padding: 0;
+    color: inherit;
     font-weight: normal;
     vertical-align: baseline;
     font-family: "Hiragino Sans GB W3","microsoft yahei","WenQuanYi Micro Hei",sans-serif;
@@ -29,10 +33,10 @@ html{
     max-width: 750px;
     width: 100%;
     margin: 0 auto;
-    background: @allBg;
+    background: @base-background;
 }
 body{
-    font-size: 1rem;
+    font-size: @base-font;
 }
 //需要清除原本浏览器的样式文件，但是不能设置html的大小，rem针对的是html根元素
 div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, a, cite, img, sub, sup, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -68,7 +72,7 @@ blockquote:before, blockquote:after {
 a {
     outline: none;
     text-decoration: none;
-    color: #333;
+    color: @base-color;
 }
 input, textarea{
     font-family: inherit;
@@ -120,5 +124,5 @@ input[type="buttom"],input[type="reset"],input[type="submit"],input[type="search
     background: #fff;
 }
 .wrap_gg{
-    background:@allBg;
+    background:@base-background;
 }

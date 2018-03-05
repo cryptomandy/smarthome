@@ -1,17 +1,5 @@
 ## smarthome  vue + vue-router + vuex + es6 + webpack + axios 知识梳理和功能
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:4161
-npm run dev
-
-npm run build
-
-# run all tests
-npm test
-```
 ### 层级结构
 
 
@@ -21,17 +9,19 @@ npm test
 
 
 
+### 规范列表
 
-### TODO
+#### 样式
+- class用下划线 aaa-bbb
+- less变量用中划线 aaa_bbb
+区分样式，方便修改
+#### 方法名
+- 驼峰写法 eg：aaaBbb
 
 
 
-
-
-
-
-
-
+### vue文档注释
+- api说明 https://cn.vuejs.org/v2/api/
 
 
 

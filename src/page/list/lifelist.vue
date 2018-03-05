@@ -1,5 +1,8 @@
 <style scoped lang="less">
     @import "../../style/mixin";
+    .root_box{
+        padding-bottom: 130/@rem;
+    }
     .wrap_bg{
         a{
             display: block;
@@ -19,6 +22,11 @@
         }
         .item_left{
             flex: 0 0 38%;
+            img{
+                display: inline-block;
+                width: 200/@rem;
+                height: 130/@rem;
+            }
         }
         .item_right{
             margin-left: 20/@rem;
@@ -26,9 +34,11 @@
             h6{
                 font-size: 28/@rem;
                 color: #333;
+                .moreText(1);
             }
             p{
-                color: @ffb;
+                color: @text-tip;
+                font-size: 22/@rem;
             }
             .item_icon{
                 position: absolute;
@@ -36,11 +46,11 @@
                 em{
                     display: inline-block;
                     padding: 0 10/@rem;
-                    border: 1px solid @mainLC;
-                    color: @mainLC;
+                    border: 1px solid @light-blue;
+                    color: @light-blue;
                     font-size: 20/@rem;
                     margin-right: 10/@rem;
-                    border-radius: 8/@rem;
+                    .radius(30);
                 }
             }
         }
@@ -57,7 +67,9 @@
                 </div>
                 <div class="item_bg" v-else>
                     <div class="item_left">
-                        <img v-lazy="item.h5Img" alt="">
+                        <!--TODO： 如何控制不同懒加载背景的图片 -->
+                        <!-- 懒加载注意图片是require到main.js中，给图片加尺寸限制 -->
+                        <img src="" v-lazy="item.h5Img" alt="">
                     </div>
                     <div class="item_right">
                         <h6>{{item.title}}</h6>
@@ -69,12 +81,15 @@
                 </div>
             </a>
         </div>
+        <nav-bar bar-title="his"></nav-bar>
     </div>
 </template>
 
 <script>
-
+// TODO： axios和async区别
 import axios from 'axios'
+import navBar from '@/components/footer/footer'
+
 export default {
     name: 'lifelist',
     data () {
@@ -95,6 +110,9 @@ export default {
             ],
             sortArr :[1,3,5]
         }
+    },
+    components:{
+        navBar
     },
     created(){
         this.getList();
