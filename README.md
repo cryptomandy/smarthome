@@ -1,4 +1,5 @@
-## smarthome  vue + vue-router + vuex + es6 + webpack + axios 知识梳理和功能
+### 技术栈：smarthome
+vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功能
 
 ### 层级结构
 
@@ -35,3 +36,7 @@ https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8
 
 * md文件编辑规则
 http://blog.csdn.net/ljc_563812704/article/details/53464039
+
+* import 和 require区别
+commonjs 的 require 是加载时执行; 而 es6 的 import 是调用时执行，加载时只产生引用
+比如引入模块里的值异步的产生了变化， require 他的文件的值是不变的; 而 import 的，则会根据模块值的变化而变化

@@ -58,8 +58,10 @@
                 <p>写手</p>
             </li>
             <li v-bind:class="[barTitle == 'me' ? 'current' :'']">
-                <em class="iconfont icon-account"></em>
-                <p>我的</p>
+                <router-link :to='"/infro"'>
+                    <em class="iconfont icon-account"></em>
+                    <p>我的</p>
+                </router-link>
             </li>
         </ul>
     </footer>

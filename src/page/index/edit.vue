@@ -70,7 +70,7 @@
 </style>
 <template>
     <div class="root_box">
-        <h5 class="big_title">div拖动编辑</h5>
+        <h5 class="big_title">频道</h5>
         <div class="wrap_bg">
             <div class="edit_item" v-for="(list,ind) in editList">
                 <h6>
@@ -110,7 +110,7 @@
         </div>
         <!-- 弹框提示 -->
         <!-- 传递对象或者数组 -->
-        <alert-tip :dialog="dialog" v-show="dialog.isdialogShow" @confirm="dialogConfirm" @close='closeCancel'></alert-tip>
+        <alert-tip :dialog="dialog" v-show="isDialog" @confirm="dialogConfirm" @close='dialogCancel'></alert-tip>
     </div>
 </template>
 <script>
@@ -261,10 +261,13 @@
                 curStartID : -1,
 
                 //测试弹框提示
+                isDialog: false,
+                //传递参数
                 dialog:{
-                    hasCancel: false,
-                    isdialogShow: false,
-                    contentText:"",
+                    hasCancel: true, //是否有取消
+                    tips:"", //提示文案
+                    callbackYes : null, // confirm的回调
+                    callbackNo : null,  // cancel的回调
                 },
 
             }
@@ -316,7 +319,7 @@
                 //2018-02-28测试state管理
                 this.USER_EDITLIST(status);
                 //脚本路由跳转方式
-                this.$router.go(-1); // this.$router.push({path:'/index'})
+                //this.$router.go(-1); // this.$router.push({path:'/index'})
             },
             //加减应用
             minusOrPlus(list,ind,item,index){
@@ -341,9 +344,10 @@
                         //加状态
                         if(item.EditStatus == "plus"){
                             if(this.editList[0].SortList.length > 6){
-                                this.dialog.isdialogShow = true;
-                                this.dialog.hasCancel = true;
-                                this.dialog.contentText = "添加到首页的应用不能超过7个";
+                                //测试单一弹框按钮
+                                this.isDialog = true;
+                                this.dialog.hasCancel = false;
+                                this.dialog.tips = "添加到首页的应用不能超过7个";
                             }else{
                                 item.EditStatus = "minus";
                                 this.editList[0].SortList.push(item);
@@ -358,6 +362,12 @@
                             })
                         }
                     }
+                }else{
+                    //测试有"取消"（或者其他）按钮
+                    this.dialog.tips = "是否跳转详情页，测试弹框问题";
+                    this.dialog.hasCancel = true;
+                    this.isDialog = true;
+                    //this.$router.push({path:'/lifelist'});
                 }
             },
             //拖曳事件
@@ -390,14 +400,16 @@
 
             //弹框事件
             dialogConfirm(){
-                this.dialog.isdialogShow = false;
+                this.isDialog = false;
+
                 this.dialog.hasCancel = false;
-                this.dialog.contentText = "";
+                this.dialog.tips = "";
             },
-            closeCancel(type){
-                this.dialog.isdialogShow = false;
+            dialogCancel(type){
+                this.isDialog = false;
+
                 this.dialog.hasCancel = false;
-                this.dialog.contentText = "";
+                this.dialog.tips = "";
                 if(type && type == "close"){
                     console.log("关闭背景");
                 }

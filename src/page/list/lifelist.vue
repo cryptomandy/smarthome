@@ -14,18 +14,17 @@
         .item_bg{
             display: flex;
             padding: 20/@rem 1rem;
-            min-height: 150/@rem;
+            height: 160/@rem;
         }
-        .m_image img{
+        .m_image img {
+            display: block;
             width: 100%;
-            height: 200/@rem;
         }
         .item_left{
-            flex: 0 0 38%;
             img{
                 display: inline-block;
                 width: 200/@rem;
-                height: 130/@rem;
+                height: 100%;
             }
         }
         .item_right{
@@ -46,8 +45,8 @@
                 em{
                     display: inline-block;
                     padding: 0 10/@rem;
-                    border: 1px solid @light-blue;
-                    color: @light-blue;
+                    border: 1px solid @text-tip;
+                    color: @text-tip;
                     font-size: 20/@rem;
                     margin-right: 10/@rem;
                     .radius(30);

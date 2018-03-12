@@ -87,3 +87,17 @@
     transform-origin: 100% 0;
     transform: scaleX(0.5);
 }
+
+//小箭头: @direction == -135(向上) , @direction == -45deg(向右) , @direction == 45(向下)，@direction == 135(向左)
+.arrowCss(@size:20/@rem, @border:2/@rem, @color:@text-tip, @direction: -45deg){ //依次为宽度，border宽，颜色，和方向
+    display: inline-block;
+    width: @size;
+    height: @size;
+    border-right: @border solid @color;
+    border-bottom: @border solid @color;
+    transform: rotate(@direction);
+    position: absolute;
+    right: 30/@rem;
+    top: 50%;
+    margin-top: -@size/2;
+}

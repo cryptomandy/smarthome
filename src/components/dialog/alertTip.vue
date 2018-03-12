@@ -66,17 +66,17 @@
 </style>
 
 <template>
-    <!-- 弹框提示，分为有无cancel -->
+
     <!-- TODO： 同一组件初始化多次 -->
     <section class="com_bg" id="alertTip" @click.stop="close">
         <div class="ui_mask"></div>
         <div class="ui_dialog">
             <div class="con_bg">
                 <h6>温馨提示</h6>
-                <div class="tip_detail">{{dialog.contentText}}</div>
+                <div class="tip_detail">{{dialog.tips}}</div>
                 <div class="tip_btn">
                     <span v-show="dialog.hasCancel" class="btn_cancel" @click.stop='close("close")'>取消</span>
-                    <span class="btn_confirm" @click.stop="confirm">确定</span>
+                    <span class="btn_confirm" @click.stop="confirm('confirm')">确定</span>
                 </div>
             </div>
         </div>
@@ -84,18 +84,30 @@
 </template>
 
 <script>
+/**
+ * @name 弹框组件
+ * @description 支持一个确定按钮（包括文案自定义）， 两个按钮（确定按钮带有回调函数）， 两个按钮（取消和确定，支持文案自定义，且带有回调函数）
+ *
+ * */
 export default {
     data () {
         return {
 
         }
     },
+    //prop 传参验证和 非prop特性参数
     props:{
         dialog:{
-            type:Object
+            type:Object, //类型，可以指定多种类型，针对的某个属性时 (String, Number, Boolean, Function, Object, Array, Symbol)
+            // required: true,  // 是否是必传
+            //数组/对象的默认值应当由一个工厂函数返回
+            default : function(){
+
+            }
         }
     },
     components:{},
+
     mounted(){},
     computed:{},
     methods:{
@@ -103,8 +115,12 @@ export default {
         * @description 子组件向父组件传递事件
         *
         */
-        confirm(){
-            this.$emit('confirm');
+        confirm(type){
+            if(type && type == "confirm"){
+                this.$emit('confirm',"close");
+            }else{
+                this.$emit('confirm');
+            }
         },
         /**
          * @param "close"判断是否是关闭取消按钮
