@@ -78,7 +78,7 @@ export default {
                 {
                     "navUrl":"/infro",
                     "funName":"信息验证",
-                    "funDes":"a. 正则验证；b. 组件使用；c. 日历组件；d. 个人信息完善相关",
+                    "funDes":"a. 表单正则验证；b. 组件使用；c. 日历组件；d. 个人信息完善相关；",
                     "creatDate":"2018-01-26",
                     "updateDate":"2018-02-26"
                 },

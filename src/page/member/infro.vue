@@ -16,8 +16,9 @@
             padding: 0  @padd-30;
             position: relative;
             display: flex;
-            height: 92/@rem;
-            line-height: 92/@rem;
+            // height: 92/@rem;
+            // line-height: 92/@rem;
+            padding: 30/@rem;
             font-size: 28/@rem;
             background: #fff;
             label{
@@ -36,6 +37,7 @@
                 display: inline-block;
                 position: absolute;
                 right: 0;
+                top: 50%;
                 height: 56/@rem;
                 line-height: 56/@rem;
                 border: 1px solid @dark-brown;
@@ -43,11 +45,20 @@
                 .radius(50);
                 font-size: 26/@rem;
                 color:@dark-brown;
-                margin: 17/@rem 30/@rem 0 0;
+                margin: -29/@rem 30/@rem 0 0;
             }
             // -135(向上) , -45deg(向右) , 45(向下)，135(向左)
             .arrow_right{
                 .arrowCss(20/@rem,2/@rem,@text-tip,-45deg);  //依次为宽度，border宽，颜色，和方向
+            }
+        }
+        .notice_box{
+            height: 0;
+            min-height: 140/@rem;
+            max-height: 180/@rem;
+            textarea{
+                display: flex;
+                align-items: center;
             }
         }
     }
@@ -55,54 +66,72 @@
 </style>
 <template>
     <div class="root_box">
-        <h5 class="big_title">完善信息<em>{{allStatus == 0 ? "提交" :"编辑"}}</em></h5>
+        <h5 class="big_title">完善信息
+            <em @click="commitInfro">{{allStatus == 0 ? "提交" :"编辑"}}</em>
+        </h5>
         <div class="wrap_ff">
             <ul>
                 <li>
                     <label>昵称：</label>
                     <input type="text" maxlength="11"
-                        placeholder="请输入昵称" v-model="config.UserName">
+                        placeholder="请输入昵称（必填）" v-model="userReg.UserName.name">
                 </li>
                 <li>
                     <label>年龄：</label>
                     <input type="text"
-                        placeholder="请输入年龄" v-model="config.Age">
+                        placeholder="请输入年龄" v-model="userReg.Age.name">
                 </li>
                 <li>
                     <label>邮箱：</label>
                     <input type="text"
-                        placeholder="请输入邮箱" v-model="config.Email">
+                        placeholder="请输入邮箱" v-model="userReg.Email.name">
                 </li>
                 <li>
                     <label>性别：</label>
                     <input type="text"
-                        placeholder="请选择性别" v-model="config.Sex">
+                        placeholder="请选择性别" v-model="userReg.Sex.name">
                     <em class="arrow_right"></em>
                 </li>
-                <li class="">
+                <li>
                     <label>生日：</label>
                     <input type="text"
-                        placeholder="请选择生日" v-model="config.Birthday">
+                        placeholder="请选择生日" v-model="userReg.Birthday.name">
                     <em class="arrow_right"></em>
                 </li>
-                <li class="">
+                <li>
                     <label>邮寄地址：</label>
                     <input type="text"
-                        placeholder="请选择邮寄地址" v-model="config.Address">
+                        placeholder="请选择邮寄地址（必选）" v-model="userReg.Address.name">
                     <em class="arrow_right"></em>
                 </li>
                 <!-- 手机信息 -->
                 <li class="g_line">
                     <label>手机号码：</label>
                     <input type="text"
-                        placeholder="请输入手机号码" v-model="config.Phone">
+                        placeholder="请输入手机号码（必填）" v-model="userReg.Phone.name">
 
                 </li>
                 <li>
                     <label>验证码：</label>
                     <input type="text" maxlength="6"
-                        placeholder="请输入验证码" v-model="config.Code">
-                    <span class="code_box">获取验证码</span>
+                        placeholder="请输入验证码（必填）" v-model="userReg.Code.name">
+                    <span class="code_box" @click="sendCode">获取验证码</span>
+                </li>
+                <li class="g_line">
+                    <label>设置密码：</label>
+                    <input type="text"
+                        placeholder="请输入密码（必填）" v-model="userReg.Password.name">
+
+                </li>
+                <li>
+                    <label>确认密码：</label>
+                    <input type="text" maxlength="6"
+                        placeholder="请输入确认密码（必填）" v-model="userReg.ComfirmPassword.name">
+                </li>
+
+                <li class="g_line notice_box">
+                    <label>备注：</label>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="如果有任何疑问，请输入备注" v-model="userReg.Notice.name"></textarea>
                 </li>
             </ul>
         </div>
@@ -116,16 +145,17 @@
 <script>
 import navBar from '@/components/footer/footer'
 import alertTip from '@/components/dialog/alertTip'
+import Rules from '@/config/reg' //正则验证规则
 
 export default {
     name: 'infro',
     data () {
         return {
             allStatus: 0, //编辑0 ，完成1
-
-            config:{
+            user:{
                 UserName:"",
                 Age:"",
+                Identify:"",
 
                 Email:"",
                 Sex:"",
@@ -133,66 +163,70 @@ export default {
                 Address:"",
 
                 Phone:"",
-                Code:""
-            },
+                Code:"",
 
-            regProps:{
+                Password:"",
+                ComfirmPassword:"",
+
+                Notice:""
+            },
+            //带有是否验证的，如果填写验证，不填不验证
+            userReg:{
                 UserName:{
-                    "emptyTip":"请填写姓名",
-                    "tips":"姓名请填写中文",
-                    "reg":/^[\u4e00-\u9fa5]{1,}$/ ,//  /^[\u2E80-\uFE4F]+[-\s]?[a-zA-Z]*$/,
+                    "required": true,
+                    "name":""
                 },
                 Age:{
-                    "emptyTip":"请填写年龄",
-                    "tips":"年龄请填写数字",
-                    "reg":/^\d{1,3}$/
+                    "required": false,
+                    "name":""
                 },
                 Identify:{
-                    "emptyTip":"请填写身份证号",
-                    "tips":"请填写正确的身份证号",
-                    "reg":/(\d{6})[1,2]([0-9]{10})(\d|x|X)$/     //[1,2]以1或者2开头的年限
+                    "required": false,
+                    "name":""
                 },
+
                 Email:{
-                    "emptyTip":"请填写邮箱",
-                    "tips":"请填写正确的邮箱",
-                    "reg":/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/
-                     //zhangshna.Mr@163.com、abc@sina.com.cn、lu62882@126.com
+                    "required": false,
+                    "name":""
                 },
                 Sex:{
-                    "emptyTip":"请选择性别",
-                    "tips":"请选择性别",
-                    "reg":/^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/
+                    "required": false,
+                    "name":""
                 },
                 Birthday:{
-                    "emptyTip":"请选择出生日期",
-                    "tips":"请选择出生日期",
-                    "reg":/^[^((\'\‘\’\"\“\”)\s]+$/, //不为空显示
+                    "required": false,
+                    "name":""
                 },
                 Address:{
-                    "emptyTip":"请选择邮寄地址",
-                    "tips":"请选择邮寄地址",
-                    "reg":/^[^((\'\‘\’\"\“\”)\s]+$/, //不为空显示
+                    "required": false,
+                    "name":""
                 },
 
                 Phone:{
-                    "emptyTip":"请填写手机号码",
-                    "tips":"请填写正确的手机号码",
-                    "reg":/^1[3,4,5,7,8][0-9]{9}$/
+                    "required": true,
+                    "name":""
                 },
                 Code:{
-                    "emptyTip":"请填写验证码",
-                    "tips":"请填写正确的验证码",
-                    "reg":/^\d{4,6}$/
+                    "required": true,
+                    "name":""
                 },
+
+                Password:{
+                    "required": true,
+                    "name":""
+                },
+                ComfirmPassword:{
+                    "required": true,
+                    "name":""
+                },
+
                 Notice:{
-                    "emptyTip":"请输入备注",
-                    "tips":"输入备注不能为空",
-                    "reg":/^[^((\'\‘\’\"\“\”)\s]+$/, //不为空显示
-                },
+                    "required": false,
+                    "name":""
+                }
             },
             isDialog: false,
-            //传递参数
-            dialog:{
+            dialog:{      //传递参数
                 hasCancel: true, //是否有取消
                 tips:"", //提示文案
                 callbackYes : null, // confirm的回调
@@ -205,12 +239,52 @@ export default {
         alertTip
     },
     created(){
-
     },
     mounted(){
 
     },
     methods:{
+        //验证提交
+        commitInfro(){
+            for(var item in this.userReg){  //循环验证
+                if(this.userReg[item].required){    //必须验证的项
+                    if(this.userReg[item].name==""){    //为空
+                        this.dialog.tips = Rules[item].emptyTip;
+                        this.isDialog = true;
+                        this.dialog.hasCancel = false;
+                        return false;
+                    }else if(!Rules[item].reg.test(this.userReg[item].name)){
+                        this.dialog.tips = Rules[item].tips;
+                        this.isDialog = true;
+                        this.dialog.hasCancel = false;
+                        return false;
+                    }
+                }else{
+                    if(this.userReg[item].name!="" && !Rules[item].reg.test(this.userReg[item].name)){  //不必输入项，有值验证
+                        this.isDialog = true;
+                        this.dialog.tips = Rules[item].tips;
+                        this.dialog.hasCancel = false;
+                        return false;
+                    }
+                }
+            }
+
+        },
+        //发送验证码
+        sendCode(){
+            if(this.userReg['Phone'].name==''){
+                this.isDialog = true;
+                this.dialog.tips = Rules['Phone'].emptyTip;
+                this.dialog.hasCancel = false;
+                return false;
+            }else if(this.userReg['Phone'].name != "" && !Rules['Phone'].reg.test(this.userReg['Phone'].name)){
+                this.isDialog = true;
+                this.dialog.tips = Rules['Phone'].tips;
+                this.dialog.hasCancel = false;
+                return false;
+            }
+
+        },
         //弹框事件
         dialogConfirm(){
             this.isDialog = false;
@@ -224,7 +298,6 @@ export default {
             this.dialog.hasCancel = false;
             this.dialog.tips = "";
             if(type && type == "close"){
-                console.log("关闭背景");
             }
 
         }

@@ -262,8 +262,7 @@
 
                 //测试弹框提示
                 isDialog: false,
-                //传递参数
-                dialog:{
+                dialog:{     //传递参数
                     hasCancel: true, //是否有取消
                     tips:"", //提示文案
                     callbackYes : null, // confirm的回调
@@ -319,7 +318,7 @@
                 //2018-02-28测试state管理
                 this.USER_EDITLIST(status);
                 //脚本路由跳转方式
-                //this.$router.go(-1); // this.$router.push({path:'/index'})
+                this.$router.go(-1); // this.$router.push({path:'/index'})
             },
             //加减应用
             minusOrPlus(list,ind,item,index){
