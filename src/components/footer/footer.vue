@@ -71,22 +71,7 @@
 export default {
     data () {
         return {
-            navList:[{
-                "name":"首页",
-                "iconClass":"icon-all"
-            },{
-                "name":"助手",
-                "iconClass":"icon-favorites"
-            },{
-                "name":"他圈",
-                "iconClass":"icon-favorite"
-            },{
-                "name":"写手",
-                "iconClass":"icon-survey"
-            },{
-                "name":"我的",
-                "iconClass":"icon-account"
-            }]
+
         }
     },
     props:["barTitle"],

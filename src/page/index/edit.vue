@@ -110,7 +110,7 @@
         </div>
         <!-- 弹框提示 -->
         <!-- 传递对象或者数组 -->
-        <alert-tip :dialog="dialog" v-show="isDialog" @confirm="dialogConfirm" @close='dialogCancel'></alert-tip>
+        <alert-tip :dialog="dialog" v-show="isDialog" @dialogConfirm="dialogCancel" @close='dialogCancel'></alert-tip>
     </div>
 </template>
 <script>
@@ -263,10 +263,8 @@
                 //测试弹框提示
                 isDialog: false,
                 dialog:{     //传递参数
-                    hasCancel: true, //是否有取消
+                    hasCancel: false, //是否有取消，默认没有
                     tips:"", //提示文案
-                    callbackYes : null, // confirm的回调
-                    callbackNo : null,  // cancel的回调
                 },
 
             }
@@ -345,8 +343,8 @@
                             if(this.editList[0].SortList.length > 6){
                                 //测试单一弹框按钮
                                 this.isDialog = true;
-                                this.dialog.hasCancel = false;
                                 this.dialog.tips = "添加到首页的应用不能超过7个";
+                                return false;
                             }else{
                                 item.EditStatus = "minus";
                                 this.editList[0].SortList.push(item);
@@ -400,19 +398,9 @@
             //弹框事件
             dialogConfirm(){
                 this.isDialog = false;
-
-                this.dialog.hasCancel = false;
-                this.dialog.tips = "";
             },
-            dialogCancel(type){
+            dialogCancel(){
                 this.isDialog = false;
-
-                this.dialog.hasCancel = false;
-                this.dialog.tips = "";
-                if(type && type == "close"){
-                    console.log("关闭背景");
-                }
-
             }
         }
     }

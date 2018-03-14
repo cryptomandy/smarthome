@@ -136,8 +136,10 @@
             </ul>
         </div>
         <!-- 弹框提示 -->
-        <alert-tip :dialog="dialog" v-show="isDialog" @confirm="dialogConfirm" @close='dialogCancel'></alert-tip>
-
+        <alert-tip :dialog="dialog" v-show="isDialog" @dialogConfirm="dialogConfirm" @dialogCancel='dialogCancel'></alert-tip>
+        <!-- 自动取消提示 -->
+        <auto-canceltip :autoCancelObj="autoCancelObj" v-show="autoCancelObj.isAuto" @cancalTip="cancalTip"></auto-canceltip>
+        <!-- 底部导航 -->
         <nav-bar bar-title="me"></nav-bar>
     </div>
 </template>
@@ -145,6 +147,7 @@
 <script>
 import navBar from '@/components/footer/footer'
 import alertTip from '@/components/dialog/alertTip'
+import autoCanceltip from '@/components/dialog/autoCanceltip'
 import Rules from '@/config/reg' //正则验证规则
 
 export default {
@@ -225,18 +228,25 @@ export default {
                     "name":""
                 }
             },
-            isDialog: false,
+            // 提示组件默认data值
+            autoCancelObj :{
+                isAuto: false, //半透明自动取消
+                autoTips:"",
+            },
+
+
+            isDialog: false,  //是否显示弹框
+            callbackYes: null, //弹框确定是否有回调函数
             dialog:{      //传递参数
-                hasCancel: true, //是否有取消
+                hasCancel: false, //是否有取消，默认没有
                 tips:"", //提示文案
-                callbackYes : null, // confirm的回调
-                callbackNo : null,  // cancel的回调
             },
         }
     },
     components:{
         navBar,
-        alertTip
+        alertTip,
+        autoCanceltip,
     },
     created(){
     },
@@ -249,21 +259,21 @@ export default {
             for(var item in this.userReg){  //循环验证
                 if(this.userReg[item].required){    //必须验证的项
                     if(this.userReg[item].name==""){    //为空
-                        this.dialog.tips = Rules[item].emptyTip;
                         this.isDialog = true;
-                        this.dialog.hasCancel = false;
+                        this.dialog.tips = Rules[item].emptyTip;
+                        this.callbackYes = null;
                         return false;
                     }else if(!Rules[item].reg.test(this.userReg[item].name)){
-                        this.dialog.tips = Rules[item].tips;
                         this.isDialog = true;
-                        this.dialog.hasCancel = false;
+                        this.dialog.tips = Rules[item].tips;
+                        this.callbackYes = null;
                         return false;
                     }
                 }else{
                     if(this.userReg[item].name!="" && !Rules[item].reg.test(this.userReg[item].name)){  //不必输入项，有值验证
                         this.isDialog = true;
                         this.dialog.tips = Rules[item].tips;
-                        this.dialog.hasCancel = false;
+                        this.callbackYes = null;
                         return false;
                     }
                 }
@@ -272,15 +282,16 @@ export default {
         },
         //发送验证码
         sendCode(){
+            this.callbackYes  = function(){
+                console.log("1");
+            }
             if(this.userReg['Phone'].name==''){
-                this.isDialog = true;
-                this.dialog.tips = Rules['Phone'].emptyTip;
-                this.dialog.hasCancel = false;
+                this.autoCancelObj.isAuto = true;
+                this.autoCancelObj.autoTips = Rules['Phone'].emptyTip;
                 return false;
             }else if(this.userReg['Phone'].name != "" && !Rules['Phone'].reg.test(this.userReg['Phone'].name)){
-                this.isDialog = true;
-                this.dialog.tips = Rules['Phone'].tips;
-                this.dialog.hasCancel = false;
+                this.autoCancelObj.isAuto = true;
+                this.autoCancelObj.autoTips = Rules['Phone'].tips;
                 return false;
             }
 
@@ -288,19 +299,19 @@ export default {
         //弹框事件
         dialogConfirm(){
             this.isDialog = false;
-
-            this.dialog.hasCancel = false;
-            this.dialog.tips = "";
+            if(this.callbackYes && typeof this.callbackYes == "function"){
+                this.callbackYes();
+            }
         },
         dialogCancel(type){
             this.isDialog = false;
+        },
+        cancalTip(){
+            console.log("1");
+            this.autoCancelObj.isAuto = false;
+            this.autoCancelObj.autoTips = "";
+        },
 
-            this.dialog.hasCancel = false;
-            this.dialog.tips = "";
-            if(type && type == "close"){
-            }
-
-        }
     }
 }
 </script>

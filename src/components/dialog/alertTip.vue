@@ -75,8 +75,8 @@
                 <h6>温馨提示</h6>
                 <div class="tip_detail">{{dialog.tips}}</div>
                 <div class="tip_btn">
-                    <span v-show="dialog.hasCancel" class="btn_cancel" @click.stop='close("close")'>取消</span>
-                    <span class="btn_confirm" @click.stop="confirm('confirm')">确定</span>
+                    <span v-show="dialog.hasCancel" class="btn_cancel" @click.stop='close'>取消</span>
+                    <span class="btn_confirm" @click.stop="confirm">确定</span>
                 </div>
             </div>
         </div>
@@ -102,36 +102,37 @@ export default {
             // required: true,  // 是否是必传
             //数组/对象的默认值应当由一个工厂函数返回
             default : function(){
-
+                return {
+                    hasCancel: false,
+                    tips:"",
+                }
             }
         }
     },
     components:{},
 
-    mounted(){},
+    mounted(){
+
+    },
     computed:{},
     methods:{
         /**
         * @description 子组件向父组件传递事件
         *
         */
-        confirm(type){
-            if(type && type == "confirm"){
-                this.$emit('confirm',"close");
-            }else{
-                this.$emit('confirm');
-            }
+        confirm(){
+            this.$parent.dialog.hasCancel = false;
+            this.$parent.dialog.tips = "";
+            this.$emit('dialogConfirm');
         },
         /**
          * @param "close"判断是否是关闭取消按钮
          * */
-        close(type){
+        close(){ //不能直接出发父组件的事件，需要在模板中绑定
             //如果有回调函数
-            if(type && type == "close"){
-                this.$emit('close',"close");
-            }else{
-                this.$emit('close');
-            }
+            this.$parent.dialog.hasCancel = false;
+            this.$parent.dialog.tips = "";
+            this.$emit('dialogCancel');  //emit修改数据；
         }
     }
 }
