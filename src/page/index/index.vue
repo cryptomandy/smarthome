@@ -17,7 +17,7 @@
             }
             h6{
                 font-size: 32/@rem;
-                color: @light-blue;
+                color: @light-s;
                 position: relative;
             }
             p{
@@ -29,11 +29,48 @@
             }
         }
     }
+    .use_bg{
+        ul{
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            background: #fff;
+            margin-bottom: 20/@rem;
+            li{
+                box-sizing: border-box;
+                position: relative;
+                // margin: 10/@rem 1.5%;
+                flex: 0 0 25%;
+                text-align: center;
+                .e_icon{
+                    margin: 20/@rem auto 0;
+                    width: 80%;
+                    display: block;
+                    height: 80/@rem;
+                    border-radius: 50%;
+                }
+                p{
+                    padding: 20/@rem 0;
+                    color: @text-primary;
+                }
+            }
+        }
+    }
 </style>
 
 <template>
     <section class="root_box">
         <h5 class="big_title">功能列表</h5>
+        <div class="use_bg" v-show="userEditList.length">
+            <ul>
+                <li v-for="(item,index) in userEditList">
+                    <div class="e_items">
+                        <span class="e_icon" v-bind:style="{background: item.background}"></span>
+                        <p>{{item.text}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
         <div class="wrap_bg">
             <ul>
                 <li v-for="(item,index) in funList">
@@ -82,6 +119,13 @@ export default {
                     "creatDate":"2018-01-26",
                     "updateDate":"2018-02-26"
                 },
+                {
+                    "navUrl":"/shop",
+                    "funName":"购物车",
+                    "funDes":"a. mock生成数据",
+                    "creatDate":"2018-03-20",
+                    "updateDate":"2018-03-20"
+                },
             ]
         }
     },
@@ -89,6 +133,7 @@ export default {
         navBar
     },
     computed:{
+        //查询store中值
         ...mapState([
             'userEditList'
         ])

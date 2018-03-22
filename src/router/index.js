@@ -7,6 +7,8 @@ const index = r => require.ensure([], () => r(require('@/page/index/index')),"in
 const infro = r => require.ensure([], () => r(require('@/page/member/infro')),"infro")
 const edit = r => require.ensure([], () => r(require('@/page/index/edit')),"edit")
 const lifelist = r => require.ensure([], () => r(require('@/page/list/lifelist')),"lifelist")
+const book = r => require.ensure([], () => r(require('@/page/book/book')),"book")
+const shop = r => require.ensure([], () => r(require('@/page/book/shop')),"shop")
 // import index from '@/page/index'
 
 Vue.use(Router)
@@ -37,6 +39,16 @@ export default new Router({
             path: '/lifelist', //资讯列表页
             name: 'lifelist',
             component: lifelist
+        },
+        {
+            path: '/book', //订单填写
+            name: 'book',
+            component: book
+        },
+        {
+            path: '/shop', //购物车
+            name: 'shop',
+            component: shop
         }
     ]
 })

@@ -40,3 +40,18 @@ http://blog.csdn.net/ljc_563812704/article/details/53464039
 * import 和 require区别
 commonjs 的 require 是加载时执行; 而 es6 的 import 是调用时执行，加载时只产生引用
 比如引入模块里的值异步的产生了变化， require 他的文件的值是不变的; 而 import 的，则会根据模块值的变化而变化
+
+
+* [SPA](http://web.jobbole.com/94065/)
+
+- SPA 应用优势；
+提升页面切换体验
+降低切换时间
+易于部署&前后端分离
+
+- 性能问题：
+初始加载脚本较大
+首屏空白时间较长
+页面返回时，数据被动重新拉取
+
+

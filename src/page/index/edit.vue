@@ -129,37 +129,37 @@
                         "SortList":[
                             {
                                 "text": "火车票", //必须有
-                                "background":"#eea481", //暂时标记页面颜色
+                                "background":"#e9b4c5", //暂时标记页面颜色
                                 "SubSortId":"2",//必须有
                             },
                             {
                                 "text": "机票",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "日本",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "德国",
-                                "background":"#9d98ea",
+                                "background":"#9bddd6",
                                 "SubSortId":"2"
                             },
                              {
                                 "text": "健身",
-                                "background":"#eea481",
+                                "background":"#e9b4c5",
                                 "SubSortId":"3"
                             },
                             {
                                 "text": "在线教育",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"3"
                             },
                             {
                                 "text": "拍照",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"3"
                             }
                         ]
@@ -170,43 +170,43 @@
                         "SortList":[
                             {
                                 "text": "火车票",
-                                "background":"#eea481",
+                                "background":"#e9b4c5",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "机票",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "日本",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "德国",
-                                "background":"#9d98ea",
+                                "background":"#9bddd6",
                                 "SubSortId":"2"
                             },
 
                             {
                                 "text": "境内意外险",
-                                "background":"#eea481",
+                                "background":"#e9b4c5",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "境外意外险",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "全年意外险",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"2"
                             },
                             {
                                 "text": "高铁贵宾厅",
-                                "background":"#9d98ea",
+                                "background":"#9bddd6",
                                 "SubSortId":"2"
                             }
 
@@ -218,17 +218,17 @@
                         "SortList":[
                             {
                                 "text": "健身",
-                                "background":"#eea481",
+                                "background":"#e9b4c5",
                                 "SubSortId":"3"
                             },
                             {
                                 "text": "在线教育",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"3"
                             },
                             {
                                 "text": "拍照",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"3"
                             }
                         ]
@@ -239,17 +239,17 @@
                         "SortList":[
                             {
                                 "text": "问诊",
-                                "background":"#eea481",
+                                "background":"#e9b4c5",
                                 "SubSortId":"4"
                             },
                             {
                                 "text": "挂号",
-                                "background":"#dd90d0",
+                                "background":"#b4e2e9",
                                 "SubSortId":"4"
                             },
                             {
                                 "text": "电话医生",
-                                "background":"#73cfea",
+                                "background":"#badd9b",
                                 "SubSortId":"4"
                             }
                         ]

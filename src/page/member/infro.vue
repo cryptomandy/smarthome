@@ -40,11 +40,11 @@
                 top: 50%;
                 height: 56/@rem;
                 line-height: 56/@rem;
-                border: 1px solid @dark-brown;
+                border: 1px solid @dark-m;
                 padding: 0 30/@rem;
                 .radius(50);
                 font-size: 26/@rem;
-                color:@dark-brown;
+                color:@dark-m;
                 margin: -29/@rem 30/@rem 0 0;
             }
             // -135(向上) , -45deg(向右) , 45(向下)，135(向左)
@@ -137,8 +137,8 @@
         </div>
         <!-- 弹框提示 -->
         <alert-tip :dialog="dialog" v-show="isDialog" @dialogConfirm="dialogConfirm" @dialogCancel='dialogCancel'></alert-tip>
-        <!-- 自动取消提示 -->
-        <auto-canceltip :autoCancelObj="autoCancelObj" v-show="autoCancelObj.isAuto" @cancalTip="cancalTip"></auto-canceltip>
+        <!-- 自动取消提示，样式在公共样式中 -->
+        <div class="auto_tip" v-show="autoCancelObj.isAutoShow"><span> {{autoCancelObj.autoTips}}</span></div>
         <!-- 底部导航 -->
         <nav-bar bar-title="me"></nav-bar>
     </div>
@@ -147,7 +147,6 @@
 <script>
 import navBar from '@/components/footer/footer'
 import alertTip from '@/components/dialog/alertTip'
-import autoCanceltip from '@/components/dialog/autoCanceltip'
 import Rules from '@/config/reg' //正则验证规则
 
 export default {
@@ -230,10 +229,10 @@ export default {
             },
             // 提示组件默认data值
             autoCancelObj :{
-                isAuto: false, //半透明自动取消
+                isAutoShow: false, //半透明自动取消
                 autoTips:"",
             },
-
+            autoTimer:null,//提示定时器
 
             isDialog: false,  //是否显示弹框
             callbackYes: null, //弹框确定是否有回调函数
@@ -246,11 +245,16 @@ export default {
     components:{
         navBar,
         alertTip,
-        autoCanceltip,
     },
     created(){
     },
     mounted(){
+
+    },
+    destroyed(){
+        clearInterval(() => {
+            this.autoTimer = null;
+        })
 
     },
     methods:{
@@ -259,42 +263,48 @@ export default {
             for(var item in this.userReg){  //循环验证
                 if(this.userReg[item].required){    //必须验证的项
                     if(this.userReg[item].name==""){    //为空
-                        this.isDialog = true;
-                        this.dialog.tips = Rules[item].emptyTip;
-                        this.callbackYes = null;
+                        this.dialogShow(true,Rules[item].emptyTip,null);
                         return false;
                     }else if(!Rules[item].reg.test(this.userReg[item].name)){
-                        this.isDialog = true;
-                        this.dialog.tips = Rules[item].tips;
-                        this.callbackYes = null;
+                        this.dialogShow(true,Rules[item].tips,null);
                         return false;
                     }
                 }else{
                     if(this.userReg[item].name!="" && !Rules[item].reg.test(this.userReg[item].name)){  //不必输入项，有值验证
-                        this.isDialog = true;
-                        this.dialog.tips = Rules[item].tips;
+                        this.dialogShow(true,Rules[item].tips,null);
                         this.callbackYes = null;
                         return false;
                     }
                 }
             }
-
         },
         //发送验证码
         sendCode(){
-            this.callbackYes  = function(){
-                console.log("1");
-            }
             if(this.userReg['Phone'].name==''){
-                this.autoCancelObj.isAuto = true;
-                this.autoCancelObj.autoTips = Rules['Phone'].emptyTip;
+                this.autoCancel(true,Rules['Phone'].emptyTip);
                 return false;
             }else if(this.userReg['Phone'].name != "" && !Rules['Phone'].reg.test(this.userReg['Phone'].name)){
-                this.autoCancelObj.isAuto = true;
-                this.autoCancelObj.autoTips = Rules['Phone'].tips;
+                his.autoCancel(true,Rules['Phone'].tips);
+                this.autoCancel();
                 return false;
             }
-
+        },
+        /******************** 提示信息代码 *****************************/
+        autoCancel(isAutoShow,autoTips){
+            this.autoCancelObj.isAutoShow = isAutoShow  || false;
+            this.autoCancelObj.autoTips = autoTips || "";
+            //自动提示消失
+            this.autoTimer =
+                setTimeout(() => {
+                    this.autoCancelObj.isAutoShow = false;
+                    this.autoCancelObj.autoTips = "";
+                }, 2000)
+        },
+        //弹框显示
+        dialogShow(isDialog,tips,callbackYes){
+            this.isDialog = isDialog || false;
+            this.dialog.tips = tips||"";
+            this.callbackYes = callbackYes || null;
         },
         //弹框事件
         dialogConfirm(){
@@ -305,11 +315,6 @@ export default {
         },
         dialogCancel(type){
             this.isDialog = false;
-        },
-        cancalTip(){
-            console.log("1");
-            this.autoCancelObj.isAuto = false;
-            this.autoCancelObj.autoTips = "";
         },
 
     }

@@ -25,7 +25,7 @@
             }
             .current{
                 .iconfont,p{
-                    color: @dark-brown;
+                    color: @dark-m;
                 }
             }
         }
@@ -53,9 +53,11 @@
                     <p>他圈</p>
                 </router-link>
             </li>
-            <li v-bind:class="[barTitle == 'edit' ? 'current' :'']">
-                <em class="iconfont icon-survey"></em>
-                <p>写手</p>
+            <li v-bind:class="[barTitle == 'cart' ? 'current' :'']">
+                <router-link :to='"/shop"'>
+                    <em class="iconfont icon-cart"></em>
+                    <p>购物车</p>
+                </router-link>
             </li>
             <li v-bind:class="[barTitle == 'me' ? 'current' :'']">
                 <router-link :to='"/infro"'>

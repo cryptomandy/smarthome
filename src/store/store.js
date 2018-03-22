@@ -7,7 +7,7 @@ import {
 } from './mutation-types'
 
 Vue.use(Vuex)
-
+//state
 const state = {
     userEditList:[],   //用户编辑我的应用后保存
 }

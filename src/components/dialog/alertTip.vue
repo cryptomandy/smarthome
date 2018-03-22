@@ -58,7 +58,7 @@
                     }
                 }
                 .btn_confirm{
-                    color: @dark-blue;
+                    color: @dark-s;
                 }
             }
         }

@@ -9,3 +9,22 @@
 .root_box{
     padding-bottom: 130/@rem;
 }
+
+//自动取消样式
+.auto_tip{
+    position: fixed;
+    bottom: 30%;
+    background: rgba(0, 0,0,0.6);
+    font-size: 26/@rem;
+    left: 50%;
+    transform: translate(-50%,0);
+    min-width: 260/@rem;
+    max-width: 460/@rem;
+    padding: 20/@rem 20/@rem;
+    text-align: center;
+    .radius(50);
+    span{
+        color: #fff;
+    }
+
+}
