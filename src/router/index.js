@@ -9,6 +9,7 @@ const edit = r => require.ensure([], () => r(require('@/page/index/edit')),"edit
 const lifelist = r => require.ensure([], () => r(require('@/page/list/lifelist')),"lifelist")
 const book = r => require.ensure([], () => r(require('@/page/book/book')),"book")
 const shop = r => require.ensure([], () => r(require('@/page/book/shop')),"shop")
+const calSelect = r => require.ensure([], () => r(require('@/page/common/calSelect')),"calSelect")
 // import index from '@/page/index'
 
 Vue.use(Router)
@@ -49,6 +50,11 @@ export default new Router({
             path: '/shop', //购物车
             name: 'shop',
             component: shop
+        },
+        {
+            path: '/calselect', //购物车
+            name: 'calSelect',
+            component: calSelect
         }
     ]
 })
