@@ -1,17 +1,66 @@
 ### 技术栈：smarthome
 vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功能
 
-### 层级结构
-
-
-
 ### 功能列表
+- 频道编辑
+- 资讯列表（加载）
+- 购物车功能（计算和选择）
+- 日历选择功能
+- 注册信息验证
 
-
-
+### 项目层级结构
+.
+├── build                                       // webpack配置文件
+├── config                                      // 项目打包路径
+├── src                                         // 源码目录
+│   ├── components                              // 组件
+│   │   ├── calender
+│   │   │   └── calender.vue                    // 日历组件
+│   │   ├── dialog
+│   │   │   └── alertTip.vue                    // 弹框提示组件
+│   │   └── footer
+│   │       └── footer.vue                      // 底部公共组件
+│   ├── config                                  // 基本配置
+│   │   ├── reg.js                              // 正则规则
+│   images                                      // 公共图片
+│   |——page
+│   │   ├── book
+│   │   │   ├── book.vue                        // 下单页
+│   │   │   └── shop.vue                        // 购物车
+│   │   ├── common
+│   │   │   └── calSelect.vue                    // 日历选择页
+│   │   ├── index
+│   │   │   ├── index.vue                       // 首页
+│   │   │   └── edit.vue                        // 频道编辑
+│   │   ├── list
+│   │   │   └── lifelist.vue                    // 列表页
+│   │   ├── member
+│   │   │   └── infro.vue                       // 个人信息页
+│   ├── plugins                                 // 引用的插件
+│   ├── router
+│   │   └── router.js                           // 路由配置
+│   ├── service                                 // 数据交互统一调配
+│   ├── store                                   // vuex的状态管理
+│   │   ├── action.js                           // 配置actions
+│   │   ├── getters.js                          // 配置getters
+│   │   ├── store.js                            // 引用vuex，创建store
+│   │   ├── modules                             // store模块
+│   │   ├── mutation-types.js                   // 定义常量muations名
+│   ├── style
+│   │   ├── fn
+│   │   │   └── setonepx.less                   // ipx问题
+│   │   ├── fonts                               // 字体图标
+│   │   ├── base.less                           // 公共样式文件
+│   │   ├── class.less                          // 全局有相同class样式的文件
+│   │   ├── mixin.less                          // 混合样式配置文件
+│   │   └── color.less                          // 颜色设置文件
+│   ├── App.vue                                 // 页面入口文件
+│   ├── main.js                                 // 程序入口文件，加载各种公共组件
+├── favicon.ico                                 // 图标
+├── index.html                                  // 入口html文件
+.
 
 ### 规范列表
-
 #### 样式
 - class用下划线 aaa-bbb
 - less变量用中划线 aaa_bbb

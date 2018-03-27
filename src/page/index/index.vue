@@ -122,7 +122,7 @@ export default {
                 {
                     "navUrl":"/shop",
                     "funName":"购物车",
-                    "funDes":"a. mock生成数据",
+                    "funDes":"a. mock生成数据，b. 购物车选择和计算",
                     "creatDate":"2018-03-20",
                     "updateDate":"2018-03-20"
                 },

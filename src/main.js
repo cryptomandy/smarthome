@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.use(lazyLoad,{
     error: '',
-    loading: require('./assets/images/loading.jpg') //require导入图片
+    loading: require('./images/loading.jpg') //require导入图片
 })
 
 // 消除 click 移动浏览器300ms延迟
