@@ -9,6 +9,7 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 - 注册信息验证
 
 ### 项目层级结构
+```
 .
 ├── build                                       // webpack配置文件
 ├── config                                      // 项目打包路径
@@ -59,7 +60,7 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 ├── favicon.ico                                 // 图标
 ├── index.html                                  // 入口html文件
 .
-
+```
 ### 规范列表
 #### 样式
 - class用下划线 aaa-bbb
