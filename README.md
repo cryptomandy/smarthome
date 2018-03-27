@@ -9,6 +9,7 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 - 注册信息验证
 
 ### 项目层级结构
+```
 .
 ├── build                                       // webpack配置文件
 ├── config                                      // 项目打包路径
@@ -21,7 +22,7 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 │   │   └── footer
 │   │       └── footer.vue                      // 底部公共组件
 │   ├── config                                  // 基本配置
-│   │   ├── reg.js                              // 正则规则
+│   │   └── reg.js                              // 正则规则
 │   images                                      // 公共图片
 │   |——page
 │   │   ├── book
@@ -45,21 +46,21 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 │   │   ├── getters.js                          // 配置getters
 │   │   ├── store.js                            // 引用vuex，创建store
 │   │   ├── modules                             // store模块
-│   │   ├── mutation-types.js                   // 定义常量muations名
-│   ├── style
-│   │   ├── fn
-│   │   │   └── setonepx.less                   // ipx问题
-│   │   ├── fonts                               // 字体图标
-│   │   ├── base.less                           // 公共样式文件
-│   │   ├── class.less                          // 全局有相同class样式的文件
-│   │   ├── mixin.less                          // 混合样式配置文件
-│   │   └── color.less                          // 颜色设置文件
+│   │   └── mutation-types.js                   // 定义常量muations名
+│   └── style
+│       ├── fn
+│       │   └── setonepx.less                   // ipx问题
+│       ├── fonts                               // 字体图标
+│       ├── base.less                           // 公共样式文件
+│       ├── class.less                          // 全局有相同class样式的文件
+│       ├── mixin.less                          // 混合样式配置文件
+│       └── color.less                          // 颜色设置文件
 │   ├── App.vue                                 // 页面入口文件
 │   ├── main.js                                 // 程序入口文件，加载各种公共组件
 ├── favicon.ico                                 // 图标
 ├── index.html                                  // 入口html文件
 .
-
+```
 ### 规范列表
 #### 样式
 - class用下划线 aaa-bbb
