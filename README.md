@@ -21,7 +21,7 @@ vue + vue-router + vuex + es6 + webpack + axios + flex + less 知识梳理和功
 │   │   └── footer
 │   │       └── footer.vue                      // 底部公共组件
 │   ├── config                                  // 基本配置
-│   │   ├── reg.js                              // 正则规则
+│   │   └── reg.js                              // 正则规则
 │   images                                      // 公共图片
 │   |——page
 │   │   ├── book
