@@ -1,5 +1,5 @@
 @import "./class";
-
+@import "./fn/setonepx";
 //flex布局 和 子元素对其方式，默认两边对齐
 .fj(@type: space-between){
     display: flex;
@@ -32,61 +32,24 @@
     overflow: hidden;
 }
 
-//小图标圆角设定；
+//图标圆角设定；
 .radius(@radius: 30){
     border-radius: @radius/@rem;
     -webkit-border-radius: @radius/@rem;
 }
 
-//1px
-.setBase(){
-    content: '';
-    position: absolute;
+//图标基本css
+.setIcon(@width,@height, @radius:30/@rem, @bg: @dark-m, @color: #fff){
+    width: @width;
+    height: @height;
+    line-height: @height;
+    color: @color;
+    background: @bg;
+    border-radius: @radius;
+    display: inline-block;
+    text-align: center;
 }
-.setTopLine(@c: #e5e5e5){
-    .setBase();
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid @c;//宽度，样式，颜色
-    color: @c;
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
-}
-.setBottomLine(@c: #e5e5e5){
-    .setBase();
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    border-bottom: 1px solid @c;//宽度，样式，颜色
-    color: @c;
-    transform-origin: 0 100%;
-    transform: scaleY(0.5);
-}
-.setLeftLine(@c: #e5e5e5){
-    .setBase();
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 1px;
-    border-left: 1px solid @c;//宽度，样式，颜色
-    color: @c;
-    transform-origin: 0 0;
-    transform: scaleX(0.5);
-}
-.setRightLine(@c: #e5e5e5){
-    .setBase();
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 1px;
-    border-right: 1px solid @c;//宽度，样式，颜色
-    color: @c;
-    transform-origin: 100% 0;
-    transform: scaleX(0.5);
-}
+// 主要小图标
 //默认箭头向右
 //小箭头: @direction == -135(向上) , @direction == -45deg(向右) , @direction == 45(向下)，@direction == 135(向左)
 .arrowCss(@size:20/@rem, @border:2/@rem, @color:@text-tip, @direction: -45deg){ //依次为宽度，border宽，颜色，和方向
@@ -101,3 +64,4 @@
     top: 50%;
     margin-top: -@size/2;
 }
+

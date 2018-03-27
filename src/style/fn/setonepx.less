@@ -1,0 +1,49 @@
+//1px
+.setBase(){
+    content: '';
+    position: absolute;
+}
+.setTopLine(@c: #e5e5e5){
+    .setBase();
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px solid @c;//宽度，样式，颜色
+    color: @c;
+    transform-origin: 0 0;
+    transform: scaleY(0.5);
+}
+.setBottomLine(@c: #e5e5e5){
+    .setBase();
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-bottom: 1px solid @c;//宽度，样式，颜色
+    color: @c;
+    transform-origin: 0 100%;
+    transform: scaleY(0.5);
+}
+.setLeftLine(@c: #e5e5e5){
+    .setBase();
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    border-left: 1px solid @c;//宽度，样式，颜色
+    color: @c;
+    transform-origin: 0 0;
+    transform: scaleX(0.5);
+}
+.setRightLine(@c: #e5e5e5){
+    .setBase();
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    border-right: 1px solid @c;//宽度，样式，颜色
+    color: @c;
+    transform-origin: 100% 0;
+    transform: scaleX(0.5);
+}

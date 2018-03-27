@@ -12,6 +12,10 @@
             display: flex;
             text-align: center;
             align-items: center;
+            position: relative;
+            &:after{
+                .setTopLine();
+            }
             li{
                 flex: 4;
                 display: block;
