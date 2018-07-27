@@ -1,7 +1,6 @@
 
 <style scoped lang="less">
-    @import "../../style/mixin";
-
+@import "../../style/mixin";
 </style>
 <template>
     <!-- 模板文件 -->
@@ -12,25 +11,19 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-    name: 'member',
-    data () {
-        return {
-
-        }
-    },
-    props:{},
-    components:{},
-    created(){
-
-    },
-    mounted(){},
-    computed:{},
-    methods:{
-
-    }
-}
+  name: "member",
+  data() {
+    return {};
+  },
+  props: {},
+  components: {},
+  created() {},
+  mounted() {},
+  computed: {},
+  methods: {}
+};
 </script>
 
 
