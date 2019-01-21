@@ -293,7 +293,7 @@ export default {
         autoCancel(isAutoShow,autoTips){
             this.autoCancelObj.isAutoShow = isAutoShow  || false;
             this.autoCancelObj.autoTips = autoTips || "";
-            //自动提示消失
+            //自动提示消失自动提示消失自动提示消失
             this.autoTimer =
                 setTimeout(() => {
                     this.autoCancelObj.isAutoShow = false;

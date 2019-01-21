@@ -43,6 +43,7 @@
     "babel-runtime": "^5.8.38",
     "chalk": "^2.0.1",
     "chromedriver": "^2.27.2",
+    "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.9",

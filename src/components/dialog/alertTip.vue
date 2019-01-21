@@ -128,7 +128,7 @@ export default {
         /**
          * @param "close"判断是否是关闭取消按钮
          * */
-        close(){ //不能直接出发父组件的事件，需要在模板中绑定
+        close(){ //不能直触发父组件的事件，需要在模板中绑定
             //如果有回调函数
             this.$parent.dialog.hasCancel = false;
             this.$parent.dialog.tips = "";

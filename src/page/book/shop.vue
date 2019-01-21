@@ -255,10 +255,10 @@ export default {
             if(!this.GoodList.length) return false;
             this.GoodList.forEach((item,i) => {
                 //判断加减状态
-                if(item.Count == this.min){
+                if(item.Count === this.min){
                     item.LeftStatus = true;
                 }
-                if(item.Count == this.max){
+                if(item.Count === this.max){
                     item.RightStatus = true;
                 }
                 if(item.IsSelect){
@@ -304,8 +304,8 @@ export default {
             let cur =  this.GoodList[index];
             if(cur.Count > this.min){
                 cur.Count--;
-                if(cur.Count == this.min){ //减少临界点判断
-                    if(cur.LeftStatus == "undefined"){
+                if(cur.Count === this.min){ //减少临界点判断
+                    if(cur.LeftStatus === "undefined"){
                         this.$set(cur,"LeftStatus",true)
                     }else{
                         cur.LeftStatus = true;
@@ -325,8 +325,8 @@ export default {
             let cur =  this.GoodList[index];
             if(cur.Count < this.max){
                 cur.Count++;
-                if(cur.Count == this.max){ //增加临界点判断
-                    if(cur.RightStatus == "undefined"){
+                if(cur.Count === this.max){ //增加临界点判断
+                    if(cur.RightStatus === "undefined"){
                         this.$set(cur,"RightStatus",true)
                     }else{
                         cur.RightStatus = true;

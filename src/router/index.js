@@ -3,13 +3,20 @@ import Router from 'vue-router'
 
 //TODO: ensure 延迟加载
 //http://www.css88.com/doc/webpack2/guides/code-splitting-require/  require.ensure
+/**
+* @name 加载组件中name：代表打包出来是否打包在一个模块中
+* 可以用import代替require.ensure 【http://www.cnblogs.com/Man-Dream-Necessary/p/9543738.html】
+* import()推荐使用这种方式(需要webpack>2.4)
+*
+*
+*/
 const index = r => require.ensure([], () => r(require('@/page/index/index')),"index")
-const infro = r => require.ensure([], () => r(require('@/page/member/infro')),"infro")
-const edit = r => require.ensure([], () => r(require('@/page/index/edit')),"edit")
-const lifelist = r => require.ensure([], () => r(require('@/page/list/lifelist')),"lifelist")
+const infro = r => require.ensure([], () => r(require('@/page/member/infro')),"index")
+const edit = r => require.ensure([], () => r(require('@/page/index/edit')),"index")
+const lifelist = r => require.ensure([], () => r(require('@/page/list/lifelist')),"book")
 const book = r => require.ensure([], () => r(require('@/page/book/book')),"book")
-const shop = r => require.ensure([], () => r(require('@/page/book/shop')),"shop")
-const calSelect = r => require.ensure([], () => r(require('@/page/common/calSelect')),"calSelect")
+const shop = r => require.ensure([], () => r(require('@/page/book/shop')),"book")
+const calSelect = r => require.ensure([], () => r(require('@/page/common/calSelect')),"component")
 // import index from '@/page/index'
 
 Vue.use(Router)
@@ -42,7 +49,7 @@ export default new Router({
             component: lifelist
         },
         {
-            path: '/book', //订单填写
+            path: '/book', //es6
             name: 'book',
             component: book
         },
@@ -58,3 +65,10 @@ export default new Router({
         }
     ]
 })
+
+/**
+* @name router
+*
+*
+*
+*/

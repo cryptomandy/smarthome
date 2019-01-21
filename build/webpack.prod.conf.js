@@ -48,7 +48,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       filename: utils.assetsPath('css/[name].[contenthash].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
-      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
+      // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,
       // increasing file size: https://github.com/vuejs-templates/webpack/issues/1110
       allChunks: true,
     }),
@@ -82,6 +82,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.HashedModuleIdsPlugin(),
     // enable scope hoisting
     new webpack.optimize.ModuleConcatenationPlugin(),
+    //https://segmentfault.com/a/1190000012828879  chunk文件分离
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -147,3 +148,12 @@ if (config.build.bundleAnalyzerReport) {
 }
 
 module.exports = webpackConfig
+/**
+ * @name CommonsChunkPlugin
+ *  CommonsChunkPlugin主要是用来提取第三方库和公共模块，避免首屏加载的bundle文件或者按需加载的bundle文件体积过大，
+ * 从而导致加载时间过长，着实是优化的一把利器。
+ *
+ *
+ *
+ *
+ * */

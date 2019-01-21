@@ -105,3 +105,31 @@ commonjs 的 require 是加载时执行; 而 es6 的 import 是调用时执行�
 页面返回时，数据被动重新拉取
 
 
+
+
+# webpack 打包原理
+https://www.jianshu.com/p/e24ed38d89fd
+
+
+### 前序准备
+
+你的本地环境需要安装 [node](http://nodejs.org/) 和 [git](https://git-scm.com/)。我们的技术栈基于 [ES2015+](http://es6.ruanyifeng.com/)、[vue](https://cn.vuejs.org/index.html)、[vuex](https://vuex.vuejs.org/zh-cn/)、[vue-router](https://router.vuejs.org/zh-cn/) and [element-ui](https://github.com/ElemeFE/element)，所有的请求数据都使用[Mock.js](https://github.com/nuysoft/Mock)模拟，提前了解和学习这些知识会对使用本项目有很大的帮助。
+
+同时配套一个系列的教程文章，如何从零构建后一个完整的后台项目，建议大家先看完这些文章再来实践本项目
+ - [vue后台 系列一(基础篇)](https://juejin.im/post/59097cd7a22b9d0065fb61d2)
+ - [vue后台 系列二(登录权限篇)](https://juejin.im/post/591aa14f570c35006961acac)
+ - [vue后台 系列三 (实战篇)](https://juejin.im/post/593121aa0ce4630057f70d35)
+ - [vue后台 系列四(vueAdmin 一个极简的后台基础模板)](https://juejin.im/post/595b4d776fb9a06bbe7dba56)
+ - [封装一个 vue component](https://segmentfault.com/a/1190000009090836)
+ - [优雅的使用 icon](https://juejin.im/post/59bb864b5188257e7a427c09)
+
+
+### nginx
+- nginx反向代理原理和配置讲解
+[https://blog.csdn.net/wild46cat/article/details/52997005]
+[http://www.cnblogs.com/DragonFire/p/6589774.html]
+[http://www.cnblogs.com/anruy/p/4989161.html]
+
+### 首页加载文件过大
+- https://www.cnblogs.com/lggggg/p/8295169.html
+

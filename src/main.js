@@ -8,7 +8,7 @@ import store from "./store/store";
 import lazyLoad from "vue-lazyload";
 import FastClick from "fastclick";
 import ElementUI from "element-ui";
-import "element-ui/lib/theme-chalk/index.css";
+// import "element-ui/lib/theme-chalk/index.css";
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

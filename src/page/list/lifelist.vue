@@ -107,7 +107,8 @@ export default {
                     "Imageurl":"http://kano.guahao.cn/elarge_fYj30684548"
                 }
             ],
-            sortArr :[1,3,5]
+            sortArr :[1,3,5],
+            
         }
     },
     components:{
@@ -115,6 +116,7 @@ export default {
     },
     created(){
         this.getList();
+        
     },
     mounted(){
 
@@ -171,12 +173,14 @@ export default {
                 // this.newsList.push.apply(this.newsList, twoRes.data.data);
                 //*** 总结： 1.用cancat，可以一次性合并多个，需要重新赋值 2. 使用push.apply则一次合并一个数组
                 // 数组合并 http://blog.csdn.net/renfufei/article/details/39376311
-                console.log(this.newsList.length,"当前数组长度");
+                // console.log(this.newsList.length,"当前数组长度");
             })).catch(error => {
                 console.log(error);
             })
 
         },
+
+        
         //post需要三个参数： url，{}，config
     }
 }

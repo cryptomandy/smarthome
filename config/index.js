@@ -9,7 +9,16 @@ module.exports = {
         // Paths
         assetsSubDirectory: "static",
         assetsPublicPath: "/",
-        proxyTable: {},
+        proxyTable: {
+            //webpack转发
+            '/list': {
+                target: 'http://192.168.182.99:9090', //源地址
+                changeOrigin: true, //改变源
+                xfwd: true,
+                autoRewrite: true,
+                secure: false
+            }
+        },
 
         // Various Dev Server settings
         // host: '0.0.0.0', // can be overwritten by process.env.HOST
@@ -40,14 +49,15 @@ module.exports = {
         // https://vue-loader.vuejs.org/en/options.html#cachebusting
         cacheBusting: true,
 
-        cssSourceMap: true
+        cssSourceMap: true,//
     },
 
     build: {
         // Template for index.html
         index: path.resolve(__dirname, "../dist/index.html"),
 
-        // Paths
+        // __dirname node中全局变量，存储的是文件所在的文件目录。
+        //https://www.jianshu.com/p/42e11515c10f
         assetsRoot: path.resolve(__dirname, "../dist"),
         assetsSubDirectory: "static",
         assetsPublicPath: "/",
@@ -56,7 +66,7 @@ module.exports = {
          * Source Maps
          */
 
-        productionSourceMap: true,
+        productionSourceMap: false,  //*** 为false时，去除掉打包的.map文件
         // https://webpack.js.org/configuration/devtool/#production
         devtool: "#source-map",
 
